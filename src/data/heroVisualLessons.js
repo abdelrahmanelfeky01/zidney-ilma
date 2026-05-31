@@ -1,0 +1,32 @@
+export const heroVisualLessons = [
+  {
+    num: "1",
+    nameEn: "Makhraj Al-Huruf",
+    nameAr: "مخارج الحروف",
+    durEn: "24 min",
+    durAr: "24 دقيقة",
+    badgeAr: "مجاني",
+    badge: "free",
+    badgeEn: "Free",
+  },
+  {
+    num: "2",
+    nameEn: "Rules of Madd",
+    nameAr: "قواعد المد",
+    durEn: "32 min",
+    durAr: "32 دقيقة",
+    badge: "free",
+    badgeAr: "مجاني",
+    badgeEn: "Free",
+  },
+  {
+    num: "3",
+    nameEn: "Live Session — Zoom",
+    nameAr: "محاضرة مباشرة — Zoom",
+    durEn: "60 min",
+    durAr: "60 دقيقة",
+    badge: "live",
+    badgeAr: "مدفوع",
+    badgeEn: "Paid",
+  },
+];

@@ -1,0 +1,83 @@
+{
+  "CTA": {
+    "buttonPrimary": "Start Free Now →",
+    "buttonSecondary": "Book a Trial Session",
+    "title": "Begin Your Quran Journey Today",
+    "description": "Whether you're a beginner or seeking mastery — we have the right path for you. Free courses available immediately and live sessions are waiting."
+  },
+  "footer": {
+    "description": "Zidney Ilma Academy — a beacon of knowledge for teaching the Holy Quran and Tajweed to Muslims around the world.",
+    "ayah": "﴾ And say: My Lord, increase me in knowledge ﴿ — Ta-Ha: 114",
+    "copyrightText": "© 2025 Zidney Ilma Academy — All rights reserved."
+  },
+  "freeCourses": {
+    "type": "Free",
+    "subTitle": "Completely Free",
+    "Title": "Free Tajweed & Quran Sciences Courses",
+    "description": "Authentic and specialized educational content accessible anytime, anywhere — certified instructors, clear explanations, and practical    examples.",
+    "allCoursesButton": "View all courses"
+  },
+  "header": {
+    "buttonSignUp": "Sign Up",
+    "buttonLogin": "Login",
+    "buttonToggleLanguage": "AR"
+  },
+  "hero": {
+    "contentSide": {
+      "besmAllah": "In the Name of Allah, the Most Gracious",
+      "primaryButton": "Start Your Journey Free →",
+      "secondaryButton": "Live Sessions",
+      "titleSlice1": "Zidney ilma",
+      "titleSlice2": "for Learning ",
+      "titleSlice3": "Holy Quran",
+      "description": "A specialized academy for Quran recitation and Tajweed sciences for all levels — free recorded courses and live sessions via Zoom with certified instructors."
+    },
+    "visualSide": {
+      "ayah": "And whoever believes in God and does righteous deeds",
+      "ayahDetails": "Surah At-Taghabun — Verse 9",
+      "todayLesson": "Today's Lesson — Rules of Noon Sakinah",
+      "todayLessonDetails": "Fundamentals of Tajweed · Lesson 7",
+      "floatTopTitle": "Certified Instructors",
+      "floatTopDescription": "Ijazah in Recitation"
+    }
+  },
+  "liveSessions": {
+    "type": "Zoom Live",
+    "button": "Book Your Session Now",
+    "subTitle": "Live Sessions",
+    "title": "Live Sessions via Zoom with Certified Instructors",
+    "description": "Direct interaction with the instructor, immediate pronunciation correction, and personal progress tracking — an irreplaceable learning experience.",
+    "zoomBoxSubtitle": "How do the sessions work?",
+    "zoomBoxTitle": "Face-to-Face Learning from Anywhere in the World",
+    "zoomBoxDescription": "After enrollment you'll receive your personal Zoom link. The student meets the instructor at a pre-scheduled time for live practice and immediate correction."
+  },
+  "testimonials": {
+    "subTitle": "Student Reviews",
+    "title": "What Do Our Students Say?",
+    "description": "Thousands of students around the world trust Zidney Ilma Academy for Quran and Tajweed learning."
+  },
+  "coursesPage": {
+    "backButton": "Back to Homepage",
+    "courseCard": {
+      "yourProgress": "your progress",
+      "notStartYet": "haven't started yet",
+      "lecture": "Lecture",
+      "hour": "Hour"
+    },
+    "all": "All",
+    "allCount": "48",
+    "badge": "Courses Library",
+    "title": "All courses",
+    "description": "Your journey in learning the Holy Quran and its sciences begins here — carefully designed courses by a select group of specialized sheikhs and teachers.",
+    "availableCoursesNumber": "48+",
+    "availableCourses": "Available courses",
+    "coursesLecturesCount": "+1200",
+    "coursesLectures": "Lecture",
+    "specializedTeacherCount": "18",
+    "specializedTeacher": "Specialized Teacher",
+    "registeredStudentCount": "12K+",
+    "registeredStudent": "Registered student",
+    "placeholderSearchInput": "Search for a course, instructor, or topic…",
+    "searchButton": "Search"
+  }
+}
