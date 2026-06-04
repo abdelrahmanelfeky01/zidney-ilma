@@ -10,6 +10,10 @@ const generalReducer = createSlice({
   reducers: {
     toggleDarkMode(state) {
       state.isDark = !state.isDark;
+      document.documentElement.setAttribute(
+        "data-theme",
+        state.isDark ? "night" : "light",
+      );
     },
   },
 });

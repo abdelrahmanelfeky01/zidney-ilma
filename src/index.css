@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-/* Replace later with rem */
+/* --------------------------------- */
+/* ------ General ------ */
+/* --------------------------------- */
+
 @theme {
   /* Colors */
 
@@ -10,6 +13,12 @@
   --color-primary-yellow: #f9a825;
   --color-primary-yellow-light: #ffe082;
 
+  --color-light: #fdfcf8;
+  --color-night: #0d1410;
+
+  --color-title: ;
+  --color-description: ;
+
   /* Breakpoints */
   --breakpoint-380: 380px;
   --breakpoint-500: 500px;
@@ -18,7 +27,29 @@
   --breakpoint-1100: 1100px;
 }
 
+[data-theme="light"] {
+  --color-title: #333;
+  --color-description: #555;
+}
+
+[data-theme="night"] {
+  --color-title: #e8ede8;
+  --color-description: #9aaa9a;
+}
+
 html {
-  font-family: Cairo, sans-serif;
   scroll-behavior: smooth;
+}
+
+/* --------------------------------- */
+/* ------ Animation ------ */
+/* --------------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -49,6 +49,7 @@ function CoursesHero() {
         </div>
 
         <h1 className={className.title}>{t("coursesPage.title")}</h1>
+        
 
         <p className={className.description}>{t("coursesPage.description")}</p>
 
