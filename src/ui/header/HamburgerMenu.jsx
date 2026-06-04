@@ -5,12 +5,14 @@ import { navLinks } from "../../data/navLinks";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../store/generalSlice";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
   const isDark = useSelector((state) => state.general.isDark);
   const { t, i18n } = useTranslation();
   const curLang = i18n.language;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const className = {
     classNameOverlay: `fixed top-18 right-0 bottom-0 left-0 z-1001 transition-opacity duration-300 ${
@@ -103,10 +105,22 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
             </div>
 
             <div className="flex items-center justify-between gap-3">
-              <button className={className.classNameButtonLogin}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/login");
+                }}
+                className={className.classNameButtonLogin}
+              >
                 {t("header.buttonLogin")}
               </button>
-              <button className={className.classNameButtonSignUp}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/register");
+                }}
+                className={className.classNameButtonSignUp}
+              >
                 {t("header.buttonSignUp")}
               </button>
             </div>
