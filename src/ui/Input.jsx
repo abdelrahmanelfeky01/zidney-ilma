@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 function Input({
   label = "label",
@@ -7,6 +8,7 @@ function Input({
   placeholder = "",
   classNameContainer = "",
   classNameInput = "",
+  required = true,
 }) {
   const [eyeShow, setEyeShow] = useState(false);
 
@@ -17,6 +19,7 @@ function Input({
       </label>
       <div className="relative">
         <input
+          required={required}
           id={id}
           placeholder={placeholder}
           className={`${classNameInput} border-primary-green/40 text-title focus:ring-primary-green-heavy/60 w-full rounded-md border p-2.5 outline-none focus:ring-1 focus:ring-offset-1`}
@@ -31,6 +34,7 @@ function Input({
 
         {type === "password" && (
           <button
+            type="button"
             className="focus:ring-primary-green-heavy/60 outline-none focus:ring-1 focus:ring-offset-1"
             onClick={(e) => {
               e.preventDefault();

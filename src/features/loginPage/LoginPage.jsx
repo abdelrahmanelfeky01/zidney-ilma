@@ -1,14 +1,12 @@
-import { useState } from "react";
-import { LuEye, LuEyeOff } from "react-icons/lu";
 import pageCover from "../../assets/images/loginPage_registerPage/pageCover.webp";
 import { useSelector } from "react-redux";
 import { Logo } from "../../ui/Icons";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import Input from "../../ui/Input";
+import ButtonForm from "../../ui/ButtonForm";
 
 function LoginPage() {
-  const [show, setShow] = useState(false);
-
   const isDark = useSelector((state) => state.general.isDark);
 
   return (
@@ -22,6 +20,7 @@ function LoginPage() {
         <div className="flex w-[50%] items-center justify-center">
           <div className="flex w-[50%] flex-col justify-center p-6 shadow-xs">
             <form className="w-85 self-center">
+              {/* Title & Description */}
               <div className="mb-8">
                 <h2 className="text-title -mb-1 text-[2.5rem] font-bold">
                   Welcome back
@@ -31,49 +30,21 @@ function LoginPage() {
                 </p>
               </div>
               {/* Email Input */}
-              <div className="mb-6">
-                <label htmlFor="email" className="mb-1 block translate-x-0.5">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="border-primary-green/40 text-title focus:ring-primary-green-heavy/60 w-full rounded-md border p-2.5 outline-none focus:ring-1 focus:ring-offset-1"
-                  placeholder="example@email.com"
-                />
-              </div>
+              <Input
+                label="Email"
+                type="email"
+                id={"email"}
+                placeholder="example@email.com"
+                required={true}
+              />
               {/* Password Input */}
-              <div className="mb-2">
-                <label
-                  htmlFor="password"
-                  className="mb-1 block translate-x-0.5"
-                >
-                  Password
-                </label>
-                <div className="relative">
-                  <input
-                    id="password"
-                    className="border-primary-green/40 text-title focus:ring-primary-green-heavy/60 w-full rounded-md border p-2.5 outline-none focus:ring-1 focus:ring-offset-1"
-                    type={show ? "text" : "password"}
-                  />
-                  {
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setShow((prev) => !prev);
-                      }}
-                    >
-                      <span className="absolute inset-e-5 top-1/2 -translate-y-1/2">
-                        {show ? (
-                          <LuEye className="text-description focus:ring-primary-green-heavy/60 text-xl outline-none focus:ring-1 focus:ring-offset-1" />
-                        ) : (
-                          <LuEyeOff className="text-description focus:ring-primary-green-heavy/60 text-xl outline-none focus:ring-1 focus:ring-offset-1" />
-                        )}
-                      </span>
-                    </button>
-                  }
-                </div>
-              </div>
+              <Input
+                label="Password"
+                type="password"
+                id={"password"}
+                required={true}
+              />
+              {/* Forgot Password */}
               <a
                 href="#"
                 className="focus:ring-primary-green-heavy/60 focus:ring-text-end mb-8 inline-block w-full text-end text-sm text-blue-600 underline outline-none hover:text-blue-800 focus:ring-1"
@@ -81,20 +52,18 @@ function LoginPage() {
                 Forgot password
               </a>
 
+              {/* Action Buttons */}
               <div>
-                <button
-                  onClick={(e) => e.preventDefault()}
-                  className="bg-primary-green-heavy focus:ring-primary-green-heavy/60 mb-7 w-full cursor-pointer rounded-sm py-2.5 text-green-50 transition-all duration-200 outline-none hover:bg-[#2d7230] focus:ring-1 focus:ring-offset-1"
-                >
+                {/* Sign in */}
+                <ButtonForm className="bg-primary-green-heavy text-green-50 hover:bg-[#2d7230]">
                   Sign in
-                </button>
-                <button
-                  onClick={(e) => e.preventDefault()}
-                  className="text-description border-primary-green-heavy/40 focus:ring-primary-green-heavy/60 mb-8 flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm border py-2.5 outline-none hover:bg-gray-50 focus:ring-1 focus:ring-offset-1"
-                >
+                </ButtonForm>
+
+                {/* Sign in with google */}
+                <ButtonForm className="text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border hover:bg-gray-100">
                   <FcGoogle className="text-2xl" />
                   Sign in with Google
-                </button>
+                </ButtonForm>
 
                 <p
                   onClick={(e) => e.preventDefault()}
