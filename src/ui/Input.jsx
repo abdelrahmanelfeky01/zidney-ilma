@@ -13,7 +13,7 @@ function Input({
   const [eyeShow, setEyeShow] = useState(false);
 
   return (
-    <div className={`${classNameContainer} mb-2`}>
+    <div className={`${classNameContainer} mb-4`}>
       <label htmlFor={id} className="mb-1 block translate-x-0.5">
         {label}
       </label>

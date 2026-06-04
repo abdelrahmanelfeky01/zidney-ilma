@@ -5,9 +5,11 @@ import CoursesGrid from "./CoursesGrid";
 import { useSelector } from "react-redux";
 
 function CoursesPage() {
-    const isDark = useSelector((state) => state.general.isDark);
+  const isDark = useSelector((state) => state.general.isDark);
   return (
-    <div className={`min-h-screen font-[Cairo,sans-serif] ${isDark ? "bg-[#0d1410]" : "bg-[#f7f4ee]"}`}>
+    <div
+      className={`min-h-screen font-[Cairo,sans-serif] ${isDark ? "bg-night" : "bg-light"}`}
+    >
       <CoursesHero />
       <CoursesSearch />
       <CoursesFilters />

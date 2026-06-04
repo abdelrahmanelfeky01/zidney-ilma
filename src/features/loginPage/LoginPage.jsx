@@ -34,7 +34,7 @@ function LoginPage() {
                 label="Email"
                 type="email"
                 id={"email"}
-                placeholder="example@email.com"
+                placeholder="your@email.com"
                 required={true}
               />
               {/* Password Input */}
