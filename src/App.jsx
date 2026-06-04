@@ -2,7 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
-import HomePage from "./features/homePage/HomePage";
+import HomePage from "./features/HomePage/HomePage";
 import PageNotFound from "./ui/PageNotFound";
 import CoursesPage from "./features/coursesPage/CoursesPage";
 import { useEffect } from "react";
