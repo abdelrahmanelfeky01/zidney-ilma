@@ -84,13 +84,13 @@ function LoginPage() {
               <div>
                 <button
                   onClick={(e) => e.preventDefault()}
-                  className="bg-primary-green-heavy focus:ring-primary-green-heavy/60 mb-7 w-full cursor-pointer rounded-sm py-2 text-green-50 transition-all duration-200 outline-none hover:bg-[#2d7230] focus:ring-1 focus:ring-offset-1"
+                  className="bg-primary-green-heavy focus:ring-primary-green-heavy/60 mb-7 w-full cursor-pointer rounded-sm py-2.5 text-green-50 transition-all duration-200 outline-none hover:bg-[#2d7230] focus:ring-1 focus:ring-offset-1"
                 >
                   Sign in
                 </button>
                 <button
                   onClick={(e) => e.preventDefault()}
-                  className="text-description border-primary-green-heavy/40 focus:ring-primary-green-heavy/60 mb-8 flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm border py-2 outline-none hover:bg-gray-50 focus:ring-1 focus:ring-offset-1"
+                  className="text-description border-primary-green-heavy/40 focus:ring-primary-green-heavy/60 mb-8 flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm border py-2.5 outline-none hover:bg-gray-50 focus:ring-1 focus:ring-offset-1"
                 >
                   <FcGoogle className="text-2xl" />
                   Sign in with Google
@@ -118,7 +118,7 @@ function LoginPage() {
           <img
             src={pageCover}
             alt="page cover"
-            className="h-full object-cover"
+            className="h-[80%] object-cover"
           />
         </div>
       </div>
