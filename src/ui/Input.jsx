@@ -35,7 +35,7 @@ function Input({
         {type === "password" && (
           <button
             type="button"
-            className="focus:ring-primary-green-heavy/60 outline-none focus:ring-1 focus:ring-offset-1"
+            className=""
             onClick={(e) => {
               e.preventDefault();
               setEyeShow((prev) => !prev);
