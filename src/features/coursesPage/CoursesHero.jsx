@@ -6,7 +6,8 @@ function CoursesHero() {
   const { t } = useTranslation();
   const isDark = useSelector((state) => state.general.isDark);
   const className = {
-    classNameSection: "relative overflow-hidden px-8 py-16 text-center",
+    classNameSection:
+      "relative overflow-hidden px-8 py-16 text-center animate-[fadeIn_0.5s_ease]",
 
     styleSection: {
       background: isDark
@@ -29,7 +30,6 @@ function CoursesHero() {
 
   return (
     <section
-      data-aos="fade"
       className={className.classNameSection}
       style={className.styleSection}
     >
@@ -49,7 +49,6 @@ function CoursesHero() {
         </div>
 
         <h1 className={className.title}>{t("coursesPage.title")}</h1>
-        
 
         <p className={className.description}>{t("coursesPage.description")}</p>
 
