@@ -7,7 +7,7 @@ function AppLayout() {
   const { isDark } = useSelector((state) => state.general);
 
   return (
-    <div className={isDark ? "bg-[#111a14]" : "bg-[#fdfcf8]"}>
+    <div className={isDark ? "bg-night" : "bg-light"}>
       <Header />
       <Outlet />
       <Footer />

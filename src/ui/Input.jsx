@@ -14,7 +14,10 @@ function Input({
 
   return (
     <div className={`${classNameContainer} mb-4`}>
-      <label htmlFor={id} className="mb-1 block translate-x-0.5">
+      <label
+        htmlFor={id}
+        className="text-title mb-1 block translate-x-0.5 font-medium"
+      >
         {label}
       </label>
       <div className="relative">
@@ -22,7 +25,7 @@ function Input({
           required={required}
           id={id}
           placeholder={placeholder}
-          className={`${classNameInput} border-primary-green/40 text-title focus:ring-primary-green-heavy/60 w-full rounded-md border p-2.5 outline-none focus:ring-1 focus:ring-offset-1`}
+          className={`${classNameInput} border-primary-green/30 text-title focus:ring-primary-green-heavy/60 w-full rounded-lg border p-2.5 outline-none focus:ring-1 focus:ring-offset-1`}
           type={
             type !== "password"
               ? type

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Input from "../../ui/Input";
 import ButtonForm from "../../ui/ButtonForm";
+import ButtonLink from "../../ui/ButtonLink";
 
 function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
@@ -45,12 +46,9 @@ function LoginPage() {
                 required={true}
               />
               {/* Forgot Password */}
-              <a
-                href="#"
-                className="focus:ring-primary-green-heavy/60 focus:ring-text-end mb-8 inline-block w-full text-end text-sm text-blue-600 underline outline-none hover:text-blue-800 focus:ring-1"
-              >
+              <ButtonLink to="/reset-password" className="text-end underline">
                 Forgot password
-              </a>
+              </ButtonLink>
 
               {/* Action Buttons */}
               <div>

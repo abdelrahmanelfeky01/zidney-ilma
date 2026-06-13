@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import LoginPage from "./features/loginPage/LoginPage";
 import RegisterPage from "./features/registerPage/RegisterPage";
 import { useTranslation } from "react-i18next";
+import ResetPasswordPage from "./features/resetPasswordPage/ResetPasswordPage";
 
 function App() {
   const { isDark } = useSelector((state) => state.general);
@@ -50,13 +51,17 @@ function App() {
 
           {/* Courses Page */}
           <Route path="courses" element={<CoursesPage />} />
+
           {/* Error Pages */}
           <Route path="*" element={<PageNotFound />} />
         </Route>
+
         {/* Login */}
         <Route path="/login" element={<LoginPage />} />
         {/* Register */}
         <Route path="/register" element={<RegisterPage />} />
+        {/* Reset Password Page */}
+        <Route path="reset-password" element={<ResetPasswordPage />} />
       </Routes>
     </BrowserRouter>
   );
