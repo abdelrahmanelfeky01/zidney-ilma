@@ -15,7 +15,7 @@ function LoginPage() {
 
   return (
     <div
-      className={`${isDark ? "bg-night" : "bg-light"} flex min-h-dvh flex-col`}
+      className={`${isDark ? "bg-night" : "bg-light"} flex min-h-svh flex-col`}
     >
       <Logo
         classNameString={"fixed max-815:inset-s-10 top-8 left-23 z-5555"}
@@ -105,7 +105,7 @@ function LoginPage() {
             isDark
               ? "bg-[linear-gradient(160deg,rgb(20,75,30)_0%,rgb(35,105,45)_60%,rgb(48,125,55)_100%)]"
               : "bg-[linear-gradient(160deg,rgb(46,125,50)_0%,rgb(76,175,80)_60%,rgb(102,187,106)_100%)]"
-          } max-815:hidden flex h-dvh w-[50%] items-center justify-center`}
+          } max-815:hidden flex self-stretch w-[50%] items-center justify-center`}
         >
           <img
             src={pageCover}
