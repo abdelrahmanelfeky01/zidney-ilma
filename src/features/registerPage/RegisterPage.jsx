@@ -27,9 +27,9 @@ function RegisterPage() {
         {/* Register side */}
         <div
           dir={curLang === "en" ? "ltr" : "rtl"}
-          className={`${isDark ? "bg-night" : "bg-light"} 815:w-[50%] 815:pt-20 flex w-full items-center justify-center`}
+          className={`${isDark ? "bg-night" : "bg-light"} 815:w-[50%] flex w-full items-center justify-center`}
         >
-          <div className="flex w-[50%] flex-col justify-center p-6 ">
+          <div className="flex w-[50%] flex-col justify-center p-6">
             <form className="300:w-70 380:w-85 self-center">
               {/* Title & Description */}
               <div className="mb-8">
