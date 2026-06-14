@@ -28,7 +28,7 @@ function LoginPage() {
           dir={curLang === "en" ? "ltr" : "rtl"}
           className="815:w-[50%] flex w-full items-center justify-center"
         >
-          <div className="flex w-[50%] flex-col justify-center p-6 shadow-xs">
+          <div className="flex w-[50%] flex-col justify-center p-6 ">
             <form className="300:w-70 380:w-85 self-center">
               {/* Title & Description */}
               <div className="mb-8">
