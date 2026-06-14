@@ -79,7 +79,7 @@ function RegisterPage() {
               {/* Action Buttons */}
               <div>
                 {/* Sign in */}
-                <ButtonForm className="bg-primary-green-heavy mb-14 text-green-50 hover:bg-[#2d7230]">
+                <ButtonForm className="bg-primary-green-heavy mb-8 text-green-50 hover:bg-[#2d7230]">
                   {t("registerPage.signUpButton")}
                 </ButtonForm>
 
