@@ -14,21 +14,23 @@ function LoginPage() {
   const curLang = i18n.language;
 
   return (
-    <div className={isDark ? "bg-night" : "bg-light"}>
+    <div
+      className={`${isDark ? "bg-night" : "bg-light"} flex min-h-dvh flex-col`}
+    >
       <Logo
         classNameString={"fixed max-815:inset-s-10 top-8 left-23 z-5555"}
         h={45}
       />
       <div
         dir="ltr"
-        className={`${isDark ? "bg-night" : "bg-light"} flex h-dvh animate-[fadeIn_0.5s_ease] items-center justify-between`}
+        className={`${isDark ? "bg-night" : "bg-light"} flex flex-1 animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
         {/* login side */}
         <div
           dir={curLang === "en" ? "ltr" : "rtl"}
           className="815:w-[50%] flex w-full items-center justify-center"
         >
-          <div className="flex w-[50%] flex-col justify-center p-6 ">
+          <div className="flex w-[50%] flex-col justify-center p-6">
             <form className="300:w-70 380:w-85 self-center">
               {/* Title & Description */}
               <div className="mb-8">

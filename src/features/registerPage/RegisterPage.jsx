@@ -13,7 +13,9 @@ function RegisterPage() {
   const curLang = i18n.language;
 
   return (
-    <div className={isDark ? "bg-night" : "bg-light"}>
+    <div
+      className={`${isDark ? "bg-night" : "bg-light"} flex min-h-dvh flex-col`}
+    >
       <Logo
         classNameString={
           "815:fixed max-815:inset-s-10 max-815:flex max-815:items-center max-815:pt-10 max-815:ps-10 top-8 lg:left-23 md:left-10 z-5555"
@@ -22,12 +24,12 @@ function RegisterPage() {
       />
       <div
         dir="ltr"
-        className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex min-h-dvh animate-[fadeIn_0.5s_ease] items-center justify-between`}
+        className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex flex-1 animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
         {/* Register side */}
         <div
           dir={curLang === "en" ? "ltr" : "rtl"}
-          className={`${isDark ? "bg-night" : "bg-light"} 815:w-[50%] flex w-full items-center justify-center`}
+          className={`${isDark ? "bg-night" : "bg-light"} 815:w-[50%] 815:pt-20 flex w-full items-center justify-center`}
         >
           <div className="flex w-[50%] flex-col justify-center p-6">
             <form className="300:w-70 380:w-85 self-center">
