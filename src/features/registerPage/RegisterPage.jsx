@@ -22,7 +22,7 @@ function RegisterPage() {
       />
       <div
         dir="ltr"
-        className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex h-dvh animate-[fadeIn_0.5s_ease] items-center justify-between`}
+        className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex min-h-dvh animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
         {/* login side */}
         <div
@@ -116,7 +116,7 @@ function RegisterPage() {
             isDark
               ? "bg-[linear-gradient(160deg,rgb(20,75,30)_0%,rgb(35,105,45)_60%,rgb(48,125,55)_100%)]"
               : "bg-[linear-gradient(160deg,rgb(46,125,50)_0%,rgb(76,175,80)_60%,rgb(102,187,106)_100%)]"
-          } max-815:hidden flex h-dvh w-[50%] items-center justify-center`}
+          } max-815:hidden flex min-h-dvh w-[50%] items-center justify-center`}
         >
           <img
             src={pageCover}
