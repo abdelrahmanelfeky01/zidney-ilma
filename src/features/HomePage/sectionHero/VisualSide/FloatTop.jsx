@@ -22,7 +22,7 @@ function FloatTop() {
 
     classNameFloatDescription: `text-xs font-bold ${isDark ? "text-[#f0ede6]" : "text-[#1a1a1a]"}`,
   };
-  
+
   return (
     <div
       className={className.classNameContainer}
@@ -31,10 +31,10 @@ function FloatTop() {
       <div className={className.classNameEmoji}>🏅</div>
       <div>
         <div className={className.classNameFloatTitle}>
-          {t("hero.visualSide.floatTopTitle")}
+          {t("homePage.hero.visualSide.floatTopTitle")}
         </div>
         <div className={className.classNameFloatDescription}>
-          {t("hero.visualSide.floatTopDescription")}
+          {t("homePage.hero.visualSide.floatTopDescription")}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ export default function CTA() {
   const isDark = useSelector((state) => state.general.isDark);
 
   const className = {
-    container: `px-4 py-22 sm:px-6 lg:px-10 ${isDark ? "bg-[#0d1410]" : "bg-[#fdfcf8]"}`,
+    container: `px-4 py-22 sm:px-6 lg:px-10 ${isDark ? "bg-night" : "bg-light"}`,
 
     classNameCTAContainer:
       "relative mx-auto max-w-290 overflow-hidden rounded-[28px] px-6 py-8 text-center",

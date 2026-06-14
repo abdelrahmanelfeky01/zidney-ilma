@@ -19,8 +19,10 @@ function Brand() {
   return (
     <div>
       <Logo />
-      <p className={className.footerDescription}>{t("footer.description")}</p>
-      <div className={className.ayah}>{t("footer.ayah")}</div>
+      <p className={className.footerDescription}>
+        {t("homePage.footer.description")}
+      </p>
+      <div className={className.ayah}>{t("homePage.footer.ayah")}</div>
     </div>
   );
 }

@@ -11,12 +11,12 @@ function CTAContent() {
 
     description: "mb-9 text-base text-[rgba(255,255,255,0.7)]",
   };
-  
+
   return (
     <>
       <div className={className.ayah}>﴾ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴿</div>
-      <h2 className={className.title}>{t("CTA.title")}</h2>
-      <p className={className.description}>{t("CTA.description")}</p>
+      <h2 className={className.title}>{t("homePage.CTA.title")}</h2>
+      <p className={className.description}>{t("homePage.CTA.description")}</p>
     </>
   );
 }

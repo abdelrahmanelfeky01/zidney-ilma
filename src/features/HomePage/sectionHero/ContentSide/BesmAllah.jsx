@@ -22,7 +22,7 @@ function BesmAllah() {
       style={className.stylesContainer}
     >
       <span className={className.classNameText}>
-        {t("hero.contentSide.besmAllah")}
+        {t("homePage.hero.contentSide.besmAllah")}
       </span>
     </div>
   );

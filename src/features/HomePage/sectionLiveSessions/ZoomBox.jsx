@@ -51,13 +51,13 @@ function ZoomBox() {
 
       <div className="relative z-10">
         <div className={className.classNameSubtitle}>
-          {t("liveSessions.zoomBoxSubtitle")}
+          {t("homePage.liveSessions.zoomBoxSubtitle")}
         </div>
         <h3 className={className.classNameTitle}>
-          {t("liveSessions.zoomBoxTitle")}
+          {t("homePage.liveSessions.zoomBoxTitle")}
         </h3>
         <p className={className.classNameDescription}>
-          {t("liveSessions.zoomBoxDescription")}
+          {t("homePage.liveSessions.zoomBoxDescription")}
         </p>
       </div>
       <div className={className.classNameFeaturesContainer}>

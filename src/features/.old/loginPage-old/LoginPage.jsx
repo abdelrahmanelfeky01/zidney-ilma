@@ -1,16 +1,16 @@
 import pageCover from "../../assets/images/loginPage_registerPage/pageCover.webp";
 import { useSelector } from "react-redux";
-import { Logo } from "../../ui/Icons";
+import { Logo } from "../../../ui/Icons";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import Input from "../../ui/Input";
-import ButtonForm from "../../ui/ButtonForm";
-import ButtonLink from "../../ui/ButtonLink";
+import Input from "../../../ui/Input";
+import ButtonForm from "../../../ui/ButtonForm";
+import ButtonLink from "../../../ui/ButtonLink";
 import { useTranslation } from "react-i18next";
 
 function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const curLang = i18n.language;
 
   return (
@@ -33,54 +33,50 @@ function LoginPage() {
               {/* Title & Description */}
               <div className="mb-8">
                 <h2 className="text-title -mb-1 text-[2.5rem] font-bold">
-                  {t("loginPage.title")}
+                  Welcome back
                 </h2>
                 <p className="translate-x-0.5 text-lg text-[#777]">
-                  {t("loginPage.description")}
+                  Please enter your details
                 </p>
               </div>
               {/* Email Input */}
               <Input
-                dir="ltr"
-                label={t("loginPage.emailLabel")}
+                label="Email"
                 type="email"
                 id={"email"}
-                placeholder={t("loginPage.emailPlaceholder")}
+                placeholder="your@email.com"
                 required={true}
               />
               {/* Password Input */}
               <Input
-                dir="ltr"
-                label={t("loginPage.passwordLabel")}
+                label="Password"
                 type="password"
                 id={"password"}
                 required={true}
               />
               {/* Forgot Password */}
               <ButtonLink to="/reset-password" className="text-end underline">
-                {t("loginPage.forgotPassword")}
+                Forgot password
               </ButtonLink>
 
               {/* Action Buttons */}
               <div>
                 {/* Sign in */}
                 <ButtonForm className="bg-primary-green-heavy text-green-50 hover:bg-[#2d7230]">
-                  {t("loginPage.signInButton")}
+                  Sign in
                 </ButtonForm>
 
                 {/* Sign in with google */}
-                <ButtonForm
-                  className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border`}
-                >
+                <ButtonForm className="text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border hover:bg-gray-100">
                   <FcGoogle className="text-2xl" />
-                  {t("loginPage.googleButton")}
+                  Sign in with Google
                 </ButtonForm>
 
                 <p
                   onClick={(e) => e.preventDefault()}
                   className="w-full text-center text-[#777]"
                 >
-                  {t("loginPage.dontHaveAccount")}{" "}
+                  Dont have an acoount?{" "}
                   <Link
                     className={`${
                       isDark
@@ -89,7 +85,7 @@ function LoginPage() {
                     } focus:ring-primary-green-heavy/60 underline outline-none focus:ring-1 focus:ring-offset-1`}
                     to={"/register"}
                   >
-                    {t("loginPage.signUpLink")}
+                    Sign up
                   </Link>
                 </p>
               </div>
@@ -108,7 +104,7 @@ function LoginPage() {
           <img
             src={pageCover}
             alt="page cover"
-            className="815:h-[60%] object-cover xl:h-[80%]"
+            className="h-[80%] object-cover max-lg:h-[70%]"
           />
         </div>
       </div>

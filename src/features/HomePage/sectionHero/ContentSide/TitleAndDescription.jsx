@@ -18,18 +18,18 @@ function TitleAndDescription() {
       <h1 className={className.classNameTitle}>
         <>
           <span className="text-primary-green">
-            {t("hero.contentSide.titleSlice1")}{" "}
+            {t("homePage.hero.contentSide.titleSlice1")}{" "}
           </span>
 
-          <span>{t("hero.contentSide.titleSlice2")}</span>
+          <span>{t("homePage.hero.contentSide.titleSlice2")}</span>
           <span className={isDark ? "text-[#FFE082]" : "text-[#F9A825]"}>
-            {t("hero.contentSide.titleSlice3")}
+            {t("homePage.hero.contentSide.titleSlice3")}
           </span>
         </>
       </h1>
       {/* Description */}
       <p className={className.classNameDescription}>
-        {t("hero.contentSide.description")}
+        {t("homePage.hero.contentSide.description")}
       </p>
     </>
   );

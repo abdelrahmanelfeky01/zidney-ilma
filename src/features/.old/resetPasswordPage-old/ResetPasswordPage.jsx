@@ -1,16 +1,16 @@
 import { useSelector } from "react-redux";
-import { Logo } from "../../ui/Icons";
+import { Logo } from "../../../ui/Icons";
 import { MdOutlineVpnKey } from "react-icons/md";
-import Input from "../../ui/Input";
-import ButtonForm from "../../ui/ButtonForm";
+import Input from "../../../ui/Input";
+import ButtonForm from "../../../ui/ButtonForm";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import ButtonLink from "../../ui/ButtonLink";
+import ButtonLink from "../../../ui/ButtonLink";
 import { useTranslation } from "react-i18next";
 
 function ResetPasswordPage() {
   const { isDark } = useSelector((state) => state.general);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const curLang = i18n.language;
 
   return (
@@ -29,18 +29,18 @@ function ResetPasswordPage() {
           </div>
           <div className="600:w-[80%] mb-12 text-center">
             <h2 className="text-title 500:text-4xl 380:text-3xl 300:text-2xl mb-6 font-semibold">
-              {t("resetPasswordPage.title")}
+              Forgot your password?
             </h2>
             <p className="text-description 380:text-xl 300:text-lg">
-              {t("resetPasswordPage.description")}
+              A code will be sent to your email to help reset password
             </p>
           </div>
           <form className="600:w-[80%] 300:w-full">
             <Input
-              label={t("resetPasswordPage.emailLabel")}
+              label="Email Address"
               type="email"
               id={"email"}
-              placeholder={t("resetPasswordPage.emailPlaceholder")}
+              placeholder="Enter your email address"
               required={true}
               classNameInput="w-60 text-lg"
               classNameContainer="mb-6"
@@ -49,7 +49,7 @@ function ResetPasswordPage() {
               type="submit"
               className="bg-primary-green-heavy text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
             >
-              {t("resetPasswordPage.resetButton")}
+              Reset password
             </ButtonForm>
           </form>
 
@@ -63,9 +63,7 @@ function ResetPasswordPage() {
               <FaArrowRightLong className="hover text-xl transition-all duration-300 group-hover:-translate-x-1" />
             )}
 
-            <span className="text-md">
-              {t("resetPasswordPage.backToLogin")}
-            </span>
+            <span className="text-md">Back to login</span>
           </ButtonLink>
         </div>
       </>

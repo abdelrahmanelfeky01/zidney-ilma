@@ -20,8 +20,10 @@
   --color-description: ;
 
   /* Breakpoints */
+  --breakpoint-300: 300px;
   --breakpoint-380: 380px;
   --breakpoint-500: 500px;
+  --breakpoint-600: 600px;
   --breakpoint-815: 815px;
   --breakpoint-857: 857px;
   --breakpoint-1100: 1100px;

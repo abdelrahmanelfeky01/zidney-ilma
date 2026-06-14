@@ -6,7 +6,7 @@ import ZoomBox from "./ZoomBox";
 export default function LiveSessions() {
   const isDark = useSelector((state) => state.general.isDark);
 
-  const className = `px-4 py-22 sm:px-6 lg:px-10 ${isDark ? "bg-[#0d1410]" : "bg-[#fdfcf8]"}`;
+  const className = `px-4 py-22 sm:px-6 lg:px-10 ${isDark ? "bg-night" : "bg-light"}`;
 
   return (
     <section data-aos="fade-up" id="paid-courses" className={className}>

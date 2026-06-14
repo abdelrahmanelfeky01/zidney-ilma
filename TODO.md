@@ -2,18 +2,13 @@
 
 ## 🟡 In Progress
 
-- [⏳] حل مشكلة ان ال hamburger menu لاتفتح في اي صفحة اخرى غير الصفحة الرئيسية
-
-- [⏳] تفعيل الوضع الليلي في صفحات انشاء الحساب وتسجيل الدخول
-- [⏳] عمل الصفحتين responsive
-- [⏳] انشاء صفحة اعادة تعيين الباسورد مثلهم تماما
 - [⏳] استخدام NavLink بدل Link في ال Header
+- [⏳] جعل اللغة الحالية محفوظة في ال local storage
 
   video -- no download
   pdf -- no download
   mp3 -- no download
-
-form MCQ
+  form MCQ
 
 ## 🟢 Done
 
@@ -37,17 +32,8 @@ form MCQ
 
 ## 🎦 Meeting
 
-- التأكد من ال functionality الخاصة بكل زر في التطبيق
-
-- الحصول على المحتوى الحقيقي للمنصة والحصول على روابط وسائل التواصل الإجتماعي
-
-- صفحة page not found
-
-- الجزء المرئي في hero section يكون صورة من صفحة courses وعند الضغط عليها تنقلني الى هناك
-  ؟؟؟
+-
 
 ## Features
 
 - Dashboard
-
-- انشاء ايقونة في ال navlinks تخص المعلمين

@@ -19,12 +19,12 @@ function HeaderLiveSessions() {
   return (
     <>
       <div className={className.classNameSubtitle}>
-        {t("liveSessions.subTitle")}
+        {t("homePage.liveSessions.subTitle")}
         <span className={className.classNameSubtitleLine} />
       </div>
-      <h2 className={className.classNameTitle}>{t("liveSessions.title")}</h2>
+      <h2 className={className.classNameTitle}>{t("homePage.liveSessions.title")}</h2>
       <p className={className.classNameDescription}>
-        {t("liveSessions.description")}
+        {t("homePage.liveSessions.description")}
       </p>
     </>
   );

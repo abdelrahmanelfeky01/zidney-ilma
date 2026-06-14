@@ -26,7 +26,7 @@ function Copyright() {
 
   return (
     <div className={className.container}>
-      <span>{t("footer.copyrightText")}</span>
+      <span>{t("homePage.footer.copyrightText")}</span>
       <div className="flex gap-2.5">
         {socials.map((s) => (
           <a

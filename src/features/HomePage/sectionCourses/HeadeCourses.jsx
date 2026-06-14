@@ -8,7 +8,8 @@ function HeaderFreeCourses() {
     classNameSubtitle:
       "mb-2.5 flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] text-primary-yellow uppercase",
 
-    classNameSubtitleLine: "h-px max-w-10 flex-1 bg-primary-yellow-light opacity-40",
+    classNameSubtitleLine:
+      "h-px max-w-10 flex-1 bg-primary-yellow-light opacity-40",
 
     classNameTitle: `mb-3.5 text-[clamp(26px,3.5vw,42px)] leading-tight font-bold ${isDark ? "text-[#f0ede6]" : "text-[#1a1a1a]"}`,
 
@@ -19,12 +20,14 @@ function HeaderFreeCourses() {
   return (
     <>
       <div className={className.classNameSubtitle}>
-        {t("freeCourses.subTitle")}
+        {t("homePage.freeCourses.subTitle")}
         <span className={className.classNameSubtitleLine} />
       </div>
-      <h2 className={className.classNameTitle}>{t("freeCourses.Title")}</h2>
+      <h2 className={className.classNameTitle}>
+        {t("homePage.freeCourses.Title")}
+      </h2>
       <p className={className.classNameDescription}>
-        {t("freeCourses.description")}
+        {t("homePage.freeCourses.description")}
       </p>
     </>
   );

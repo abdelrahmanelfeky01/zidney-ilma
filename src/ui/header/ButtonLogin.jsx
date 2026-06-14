@@ -10,7 +10,7 @@ function ButtonSignIn() {
 
   return (
     <button className={className} onClick={() => navigate("/login")}>
-      {t("header.buttonLogin")}
+      {t("homePage.header.buttonLogin")}
     </button>
   );
 }

@@ -24,10 +24,10 @@ function CTAActions() {
         className={className.classNameButtonPrimary}
         style={className.stylesButtonPrimary}
       >
-        {t("CTA.buttonPrimary")}
+        {t("homePage.CTA.buttonPrimary")}
       </button>
       <button className={className.buttonSecondary}>
-        {t("CTA.buttonSecondary")}
+        {t("homePage.CTA.buttonSecondary")}
       </button>
     </div>
   );

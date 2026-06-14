@@ -16,7 +16,7 @@ function ButtonAllCourses() {
   return (
     <div className="flex items-center justify-center">
       <Link to="/courses" className={className}>
-        {t("freeCourses.allCoursesButton")}
+        {t("homePage.freeCourses.allCoursesButton")}
       </Link>
     </div>
   );

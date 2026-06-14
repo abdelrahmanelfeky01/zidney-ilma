@@ -40,7 +40,7 @@ function CoursesGrid() {
           >
             <span className="text-5xl">{c.emoji}</span>
             <span className={className.classNameImage}>
-              {t("freeCourses.type")}
+              {t("homePage.freeCourses.type")}
             </span>
           </div>
 
@@ -58,7 +58,7 @@ function CoursesGrid() {
             <div className={className.classNameCardBottom}>
               <span>{curLang === "en" ? c.metaEn : c.metaAr}</span>
               <span className={className.classNameCardType}>
-                {t("freeCourses.type")}
+                {t("homePage.freeCourses.type")}
               </span>
             </div>
           </div>

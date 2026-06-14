@@ -9,6 +9,7 @@ function Input({
   classNameContainer = "",
   classNameInput = "",
   required = true,
+  dir = "ltr",
 }) {
   const [eyeShow, setEyeShow] = useState(false);
 
@@ -22,6 +23,7 @@ function Input({
       </label>
       <div className="relative">
         <input
+          dir={dir}
           required={required}
           id={id}
           placeholder={placeholder}
@@ -37,8 +39,9 @@ function Input({
 
         {type === "password" && (
           <button
+            dir={dir}
             type="button"
-            className=""
+            tabIndex={-1}
             onClick={(e) => {
               e.preventDefault();
               setEyeShow((prev) => !prev);

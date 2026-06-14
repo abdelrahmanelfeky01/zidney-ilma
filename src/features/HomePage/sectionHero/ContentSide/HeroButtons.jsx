@@ -27,10 +27,10 @@ function HeroButtons() {
         className={className.classNamePrimaryButton}
         style={className.stylesPrimaryButton}
       >
-        {t("hero.contentSide.primaryButton")}
+        {t("homePage.hero.contentSide.primaryButton")}
       </button>
       <button className={className.classNameSecondaryButton}>
-        {t("hero.contentSide.secondaryButton")}
+        {t("homePage.hero.contentSide.secondaryButton")}
       </button>
     </div>
   );

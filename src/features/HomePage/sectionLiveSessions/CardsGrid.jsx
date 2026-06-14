@@ -76,7 +76,7 @@ function CardsGrid() {
             <div className={className.classNameCardPriceContainer}>
               <div className={className.classNameCardType}>
                 <ZoomIcon />
-                <span>{t("liveSessions.type")}</span>
+                <span>{t("homePage.liveSessions.type")}</span>
               </div>
               <div className={className.classNamePrice}>
                 {c.price}
@@ -108,7 +108,7 @@ function CardsGrid() {
           </div>
 
           <button className={className.classNameCardButton}>
-            {t("liveSessions.button")}
+            {t("homePage.liveSessions.button")}
           </button>
         </div>
       ))}

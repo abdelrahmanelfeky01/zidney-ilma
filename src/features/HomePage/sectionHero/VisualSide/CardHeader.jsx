@@ -15,10 +15,10 @@ function CardHeader() {
     <div className="mb-5.5 flex items-center gap-3.5">
       <div>
         <div className={className.classNameTodayLesson}>
-          {t("hero.visualSide.todayLesson")}
+          {t("homePage.hero.visualSide.todayLesson")}
         </div>
         <div className={className.classNameTodayLessonDetails}>
-          {t("hero.visualSide.todayLessonDetails")}
+          {t("homePage.hero.visualSide.todayLessonDetails")}
         </div>
       </div>
     </div>

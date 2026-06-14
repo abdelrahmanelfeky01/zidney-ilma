@@ -20,11 +20,11 @@ function HeaderTestimonials() {
   return (
     <>
       <div className={className.subtitle}>
-        {t("testimonials.subTitle")}
+        {t("homePage.testimonials.subTitle")}
         <span className={className.subtitleLine} />
       </div>
-      <h2 className={className.title}>{t("testimonials.title")}</h2>
-      <p className={className.description}>{t("testimonials.description")}</p>
+      <h2 className={className.title}>{t("homePage.testimonials.title")}</h2>
+      <p className={className.description}>{t("homePage.testimonials.description")}</p>
     </>
   );
 }

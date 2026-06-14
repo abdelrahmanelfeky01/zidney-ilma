@@ -93,7 +93,7 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
                 onClick={handleToggleLanguage}
                 className={className.classNameButtonToggleLanguage}
               >
-                {t("header.buttonToggleLanguage")}
+                {t("homePage.header.buttonToggleLanguage")}
               </button>
 
               <button
@@ -112,7 +112,7 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
                 }}
                 className={className.classNameButtonLogin}
               >
-                {t("header.buttonLogin")}
+                {t("homePage.header.buttonLogin")}
               </button>
               <button
                 onClick={(e) => {
@@ -121,7 +121,7 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
                 }}
                 className={className.classNameButtonSignUp}
               >
-                {t("header.buttonSignUp")}
+                {t("homePage.header.buttonSignUp")}
               </button>
             </div>
           </div>

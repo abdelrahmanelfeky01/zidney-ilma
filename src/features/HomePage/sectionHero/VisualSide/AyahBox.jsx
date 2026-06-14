@@ -17,9 +17,9 @@ function AyahBox() {
 
   return (
     <div className={className.ayahContainer}>
-      <div className={className.classNameAyah}>{t("hero.visualSide.ayah")}</div>
+      <div className={className.classNameAyah}>{t("homePage.hero.visualSide.ayah")}</div>
       <div className={className.classNameAyahDetails}>
-        {t("hero.visualSide.ayahDetails")}
+        {t("homePage.hero.visualSide.ayahDetails")}
       </div>
     </div>
   );

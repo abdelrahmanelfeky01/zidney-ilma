@@ -13,7 +13,7 @@ function ButtonToggleLanguage({ handleToggleLanguage }) {
 
   return (
     <button onClick={handleToggleLanguage} className={className}>
-      {t("header.buttonToggleLanguage")}
+      {t("homePage.header.buttonToggleLanguage")}
     </button>
   );
 }
