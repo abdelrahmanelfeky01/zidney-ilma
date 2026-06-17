@@ -2,7 +2,14 @@
 
 ## 🟡 In Progress
 
+- عندما يتغير اي route يتم الصعود لاعلى الصفحة
 - [⏳] استخدام NavLink بدل Link في ال Header
+- [⏳] جعل اللغة الحالية محفوظة في ال local storage
+
+- استبدال icons الموجودة في مجلد ui بايقونات من react icons
+
+- اصلاح ماهو موجود في Header Actions
+
 - [⏳] جعل اللغة الحالية محفوظة في ال local storage
 
   video -- no download
