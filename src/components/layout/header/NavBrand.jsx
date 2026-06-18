@@ -1,4 +1,4 @@
-import { Logo } from "../../../ui/Icons";
+import Logo from "../../../ui/Logo";
 import ButtonToggleLanguage from "./buttons/ButtonToggleLanguage";
 import ButtonToggleTheme from "./buttons/ButtonToggleTheme";
 

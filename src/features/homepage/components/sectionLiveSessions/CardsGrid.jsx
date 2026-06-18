@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { CheckIcon, ZoomIcon } from "../../../../ui/Icons";
 import { liveSessionsCard } from "../../../../data/liveSessionsCard";
 import { useSelector } from "react-redux";
+import { TbBrandZoom } from "react-icons/tb";
+import { FaCheck } from "react-icons/fa6";
 
 function CardsGrid() {
   const isDark = useSelector((state) => state.general.isDark);
@@ -75,7 +76,7 @@ function CardsGrid() {
             </div>
             <div className={className.classNameCardPriceContainer}>
               <div className={className.classNameCardType}>
-                <ZoomIcon />
+                <TbBrandZoom />
                 <span>{t("homePage.liveSessions.type")}</span>
               </div>
               <div className={className.classNamePrice}>
@@ -100,7 +101,7 @@ function CardsGrid() {
             {(curLang === "en" ? c.featuresEn : c.featuresAr).map((f, j) => (
               <div key={j} className={className.classNameCardFeatures}>
                 <div className={className.classNameCheckIcon}>
-                  <CheckIcon />
+                  <FaCheck className="text-xs" />
                 </div>
                 {f}
               </div>

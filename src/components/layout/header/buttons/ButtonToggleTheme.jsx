@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { MoonIcon, SunIcon } from "../../../../ui/Icons";
 import { toggleDarkMode } from "../../../../store/generalSlice";
+import { IoMoonOutline } from "react-icons/io5";
+import { LuSun } from "react-icons/lu";
 
 function ButtonToggleTheme({ className = "", position = "nav" }) {
   const isDark = useSelector((state) => state.general.isDark);
@@ -23,7 +24,11 @@ function ButtonToggleTheme({ className = "", position = "nav" }) {
       onClick={() => dispatch(toggleDarkMode())}
       className={`${position === "nav" ? classNameNav : classNameHamburger} ${className}`}
     >
-      {isDark ? <MoonIcon /> : <SunIcon />}
+      {isDark ? (
+        <IoMoonOutline className="text-lg" />
+      ) : (
+        <LuSun className="text-lg" />
+      )}
     </button>
   );
 }

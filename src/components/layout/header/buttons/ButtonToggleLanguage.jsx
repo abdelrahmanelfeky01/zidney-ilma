@@ -11,6 +11,9 @@ function ButtonToggleLanguage({ className = "", position = "nav" }) {
     i18n.changeLanguage(newLang);
     document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = newLang;
+
+    // Save language in local storage
+    localStorage.setItem("language", newLang);
   }
 
   const classNameNav = `hidden h-9.5 min-w-9.5 cursor-pointer items-center justify-center rounded-[10px] border font-['Cairo'] text-sm font-semibold transition-all duration-200 lg:flex ${

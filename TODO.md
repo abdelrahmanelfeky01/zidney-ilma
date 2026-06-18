@@ -2,53 +2,38 @@
 
 ## 🟡 In Progress
 
-- عندما يتغير اي route يتم الصعود لاعلى الصفحة
-- [⏳] استخدام NavLink بدل Link في ال Header
-- [⏳] جعل اللغة الحالية محفوظة في ال local storage
-
-- استبدال icons الموجودة في مجلد ui بايقونات من react icons
-
-- اصلاح ماهو موجود في Header Actions
-
-
-- حفظ ال language في ال local storage 
-
-
-- 
-
-- جعل ال navlinks في الوسط دائما
-
-- [⏳] جعل اللغة الحالية محفوظة في ال local storage
-
-  video -- no download
-  pdf -- no download
-  mp3 -- no download
-  form MCQ
-
 ## 🟢 Done
 
-- [✅] انشاء تطبيق رياكت وتثبيت المكتبات والحزم المطلوبة
-- [✅] تطوير النسخة الثابتة للتطبيق
-- [✅] جعل التطبيق متجاوب مع جميع الأجهزة
-- [✅] تنفيذ قائمة للروابط للهواتف المحمولة
-- [✅] دعم اللغة العربية والانجليزية
-- [✅] تنفيذ الوضع الليلى
-- [✅] جعل الأزرار ثابتة في اسفل البطاقة, ستكون أفضل من جعلها ديناميكة مع المحتوى
-- [✅] اضافة زر تسجيل الدخول بجانب زر انشاء حساب جديد
-- [✅] اعداد react router للتنقل بين الصفحات
-- [✅] الانتهاء من التوجيه في صفحة الكورسات وصفحة page not found
-- [✅] اضافة ظل في ال header
-- [✅] ازالة النص من الأيقونة
-- [✅] ازالة النص من الايقونة بحيث تكون افضل في مكان ال favicon
-- [✅] تعديل ال Title في ال Hero section
-- [✅] ازالة بسم الله الرحمن الرحيم
-- [✅] حل مشكلة زر الناف
-- [✅] اضافة ارتفاع للصف في ال hero title
+<!-- Static Pages -->
 
-## 🎦 Meeting
+[✅] 1- Home Page - Purchased
+[✅] 2- Courses Page - Purchased
+[✅] 3- Login Page - Purchased
+[✅] 4- Register Page - Purchased
+[✅] 5- Reset Password Page - Purchased
+[✅] 6- Reset Password Page - Purchased
+[✅] 7- Reset Password Template (HTML) - Purchased
+[✅] 8- Confirm Account Template (HTML) - Purchased
+[⏳] 9- Modal Login - Not Purchased
 
--
+<!-- Logic -->
+
+[⏳] 1- Login Logic - Not Purchased
+
+<!-- Database -->
+
+[✅] 1- Database Architecture - Purchased
+
+<!-- Backend -->
 
 ## Features
 
-- Dashboard
+1- Create Accounts with email -- Start from here
+2- Create Accounts with Google
+3- Signin with Google
+4- Reset Password
+5- Dashboard
+6- In Courses Page -> Library for show videos
+7- In Courses Page -> Library for show pdf
+8- In Courses Page -> Library for show mp3
+9- In Courses Page -> Form MCQ

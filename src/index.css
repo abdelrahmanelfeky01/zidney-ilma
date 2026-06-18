@@ -24,8 +24,10 @@
   --breakpoint-380: 380px;
   --breakpoint-500: 500px;
   --breakpoint-600: 600px;
+  --breakpoint-770: 770px;
   --breakpoint-815: 815px;
   --breakpoint-857: 857px;
+  --breakpoint-900: 900px;
   --breakpoint-1100: 1100px;
 }
 
@@ -54,4 +56,17 @@ html {
   to {
     opacity: 1;
   }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+#nprogress .bar {
+  background: #388e3c !important;
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px #388e3c,
+    0 0 5px #388e3c !important;
 }

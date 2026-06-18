@@ -118,5 +118,10 @@
   "toaster": {
     "loginSuccess": "Logged in successfully",
     "loginError": "Incorrect email or password. try again."
+  },
+  "modalLogin": {
+    "title": "Log in to continue learning",
+    "description": "To access this page, you must be a member of the platform.",
+    "dismiss": "not now"
   }
 }

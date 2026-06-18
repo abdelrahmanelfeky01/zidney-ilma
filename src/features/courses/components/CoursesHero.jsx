@@ -7,7 +7,7 @@ function CoursesHero() {
   const isDark = useSelector((state) => state.general.isDark);
   const className = {
     classNameSection:
-      "relative overflow-hidden px-8 py-16 text-center animate-[fadeIn_0.5s_ease]",
+      "relative overflow-hidden px-8 py-16 text-center",
 
     styleSection: {
       background: isDark

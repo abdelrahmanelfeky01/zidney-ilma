@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { zoomPills } from "../../../../data/zoomPills";
+import { TbBrandZoom } from "react-icons/tb";
 
 function ZoomBox() {
   const { t, i18n } = useTranslation();
@@ -61,7 +62,9 @@ function ZoomBox() {
         </p>
       </div>
       <div className={className.classNameFeaturesContainer}>
-        <div className={className.classNameIcon}>🎥</div>
+        <div className={className.classNameIcon}>
+          <TbBrandZoom className="text-primary-green-heavy" />
+        </div>
         <div className="flex flex-col gap-2">
           {zoomPills.map((p, i) => (
             <div key={i} className={className.classNameFeatures}>

@@ -5,6 +5,7 @@ import Spinner from "../ui/Spinner";
 
 function GuestRoute({ children }) {
   const { isAuthenticated, isLoading } = useUser();
+  
   const navigate = useNavigate();
 
   //- if user authed redirect to homepage

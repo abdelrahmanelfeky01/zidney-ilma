@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Logo } from "../../../ui/Icons";
 import { MdOutlineVpnKey } from "react-icons/md";
 import Input from "../components/Input";
 import ButtonForm from "../components/ButtonForm";
@@ -7,6 +6,7 @@ import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ButtonLink from "../components/ButtonLink";
 import { useTranslation } from "react-i18next";
+import Logo from "../../../ui/Logo";
 
 function ResetPasswordPage() {
   const { isDark } = useSelector((state) => state.general);

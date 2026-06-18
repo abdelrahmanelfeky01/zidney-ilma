@@ -21,7 +21,11 @@ function Header() {
     <nav className={className}>
       <NavBrand />
 
-      <NavLinks />
+      <div className="fixed right-1/2 translate-x-1/2">
+        <ul className="hidden list-none items-center gap-1 lg:flex">
+          <NavLinks position="nav" />
+        </ul>
+      </div>
 
       <div className="flex items-center justify-between gap-5">
         {/* For large screens */}

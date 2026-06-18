@@ -16,7 +16,7 @@ function HeroButtons() {
 
     classNameSecondaryButton: `cursor-pointer rounded-xl bg-transparent px-6.5 py-3.5 font-['Cairo'] text-[15px] font-semibold transition-all duration-300 hover:bg-primary-green hover:text-white ${
       isDark
-        ? "border-[1.5px] border-[#FFC107] text-[#FFE082] hover:border-[#F9A825] hover:bg-[#F9A825]"
+        ? "border-[1.5px] border-primary-green text-primary-green hover:border-primary-green hover:bg-primary-green"
         : "border-[1.5px] border-primary-green text-primary-green"
     }`,
   };

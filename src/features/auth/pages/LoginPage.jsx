@@ -1,6 +1,5 @@
 import pageCover from "../../../assets/images/loginPage_registerPage/pageCover.webp";
 import { useSelector } from "react-redux";
-import { Logo } from "../../../ui/Icons";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Input from "../components/Input";
@@ -9,6 +8,7 @@ import ButtonLink from "../components/ButtonLink";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useLogin } from "../../auth/hooks/useLogin";
+import Logo from "../../../ui/Logo";
 
 function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);

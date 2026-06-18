@@ -12,52 +12,66 @@ import ResetPasswordPage from "../features/auth/pages/ResetPasswordPage";
 import ProtectedRoute from "./ProtectedRoute";
 import GuestRoute from "./GuestRoute";
 import PageNotFound from "./PageNotFound";
+import ScrollToTop from "./ScrollToTop";
+import PageTransition from "./PageTransition";
 
 function AppRoutes() {
   return (
-    <Routes>
-      <Route element={<AppLayout />}>
-        <Route path="" element={<HomePage />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route
+            path=""
+            element={
+              <PageTransition>
+                <HomePage />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="courses"
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <CoursesPage />
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
 
         <Route
-          path="courses"
+          path="/login"
           element={
-            <ProtectedRoute>
-              <CoursesPage />
-            </ProtectedRoute>
+            <GuestRoute>
+              <LoginPage />
+            </GuestRoute>
           }
         />
 
-        <Route path="*" element={<PageNotFound />} />
-      </Route>
+        <Route
+          path="/register"
+          element={
+            <GuestRoute>
+              <RegisterPage />
+            </GuestRoute>
+          }
+        />
 
-      <Route
-        path="/login"
-        element={
-          <GuestRoute>
-            <LoginPage />
-          </GuestRoute>
-        }
-      />
-
-      <Route
-        path="/register"
-        element={
-          <GuestRoute>
-            <RegisterPage />
-          </GuestRoute>
-        }
-      />
-
-      <Route
-        path="reset-password"
-        element={
-          <GuestRoute>
-            <ResetPasswordPage />
-          </GuestRoute>
-        }
-      />
-    </Routes>
+        <Route
+          path="reset-password"
+          element={
+            <GuestRoute>
+              <ResetPasswordPage />
+            </GuestRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

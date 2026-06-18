@@ -9,6 +9,7 @@ const getInitialTheme = () => {
 // Define Initial State
 const initialState = {
   isDark: getInitialTheme(),
+  showLoginModal: false,
 };
 
 // Add current theme to "data-theme" to html
@@ -30,10 +31,13 @@ const generalReducer = createSlice({
       );
       localStorage.setItem("theme", state.isDark ? "night" : "light");
     },
+    toggleShowLoginModal(state) {
+      state.showLoginModal = !state.showLoginModal;
+    },
   },
 });
 
 // Exports
-export const { toggleDarkMode } = generalReducer.actions;
+export const { toggleDarkMode, toggleShowLoginModal } = generalReducer.actions;
 
 export default generalReducer.reducer;

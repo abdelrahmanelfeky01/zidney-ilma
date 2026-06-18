@@ -1,19 +1,16 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useUser } from "../../../features/auth/hooks/useUser";
 import { createPortal } from "react-dom";
-import { navLinks } from "../../../data/navLinks";
 import ButtonToggleLanguage from "./buttons/ButtonToggleLanguage";
 import ButtonToggleTheme from "./buttons/ButtonToggleTheme";
 import ButtonLogin from "./buttons/ButtonLogin";
 import ButtonSignUp from "./buttons/ButtonSignUp";
+import NavLinks from "./NavLinks";
 
 function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
   const isDark = useSelector((state) => state.general.isDark);
-  const { i18n } = useTranslation();
-  const curLang = i18n.language;
   const { isAuthenticated, isLoading } = useUser();
 
   return createPortal(
@@ -43,25 +40,15 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
         <div className="px-5 py-4">
           {/* Nav Links */}
           <ul
-            className={`mb-4 list-none border-b pb-4 ${
+            className={`mb-4 flex list-none flex-col gap-5 border-b pb-4 ${
               isDark ? "border-[#223028]" : "border-[#e8e0d0]"
             }`}
           >
-            {navLinks.map((link) => (
-              <li key={link.link}>
-                <Link
-                  to={link.link}
-                  onClick={() => setIsOpen(false)}
-                  className={`flex w-full items-center rounded-[10px] px-4 py-3 text-sm font-medium no-underline transition-all duration-200 ${
-                    isDark
-                      ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
-                      : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
-                  }`}
-                >
-                  {curLang === "en" ? link.labelEn : link.labelAr}
-                </Link>
-              </li>
-            ))}
+            <NavLinks
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              position="hamburger"
+            />
           </ul>
 
           {/* Bottom Actions */}

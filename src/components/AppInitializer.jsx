@@ -9,14 +9,17 @@ function AppInitializer() {
   const { i18n } = useTranslation();
   const curLang = i18n.language;
 
+  // For init AOS
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, offset: 200 });
+    AOS.init({ duration: 700, once: true, offset: 200 });
   }, []);
 
+  // For AOS on refresh
   useEffect(() => {
     AOS.refresh();
   }, [isDark]);
 
+  // set attribute fot css
   useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
@@ -24,10 +27,27 @@ function AppInitializer() {
     );
   }, [isDark]);
 
+  // use fonts dependence on language
   useEffect(() => {
     document.documentElement.style.fontFamily =
       curLang === "en" ? "Inter, sans-serif" : "Tajawal, sans-serif";
   }, [curLang]);
+
+  // init language
+  useEffect(() => {
+    function handleToggleLanguage() {
+      // 1. Search on local storage if there is language saved
+      const savedLanguage = localStorage.getItem("language");
+      // 2. if there is language? use it .. if no language .. use arabic
+      if (savedLanguage) {
+        i18n.changeLanguage(savedLanguage);
+        document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+        document.documentElement.lang = savedLanguage;
+      }
+    }
+
+    handleToggleLanguage();
+  }, []);
 
   return null;
 }

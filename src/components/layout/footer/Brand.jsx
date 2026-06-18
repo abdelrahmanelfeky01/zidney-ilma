@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Logo } from "../../../ui/Icons";
 import { useSelector } from "react-redux";
+import Logo from "../../../ui/Logo";
 
 function Brand() {
   const isDark = useSelector((state) => state.general.isDark);
