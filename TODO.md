@@ -1,5 +1,3 @@
-# TODO
-
 ## 🟡 In Progress
 
 ## 🟢 Done
