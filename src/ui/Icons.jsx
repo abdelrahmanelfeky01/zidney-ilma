@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function Logo({ classNameString, h = 31 }) {
   return (
     <Link
+      
       to="/"
       className={`${classNameString} flex items-center gap-2.5 no-underline`}
     >
       <svg
-        
         height={h}
         viewBox="0 0 65 31"
         fill="none"

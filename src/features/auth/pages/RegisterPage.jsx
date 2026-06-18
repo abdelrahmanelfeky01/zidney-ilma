@@ -14,16 +14,16 @@ function RegisterPage() {
 
   return (
     <div
+      dir={curLang === "en" ? "ltr" : "rtl"}
       className={`${isDark ? "bg-night" : "bg-light"} flex min-h-svh flex-col`}
     >
       <Logo
         classNameString={
-          "815:fixed max-815:inset-s-10 max-815:flex max-815:items-center max-815:pt-10 max-815:ps-10 top-8 lg:left-23 md:left-10 z-5555"
+          "815:fixed max-815:inset-s-10 max-815:flex max-815:items-center max-815:pt-10 max-815:ps-10 top-8 lg:inset-s-23 md:inset-s-10 z-5555"
         }
         h={45}
       />
       <div
-        dir="ltr"
         className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex flex-1 animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
         {/* Register side */}
@@ -47,6 +47,7 @@ function RegisterPage() {
               <Input
                 label={t("registerPage.fullNameLabel")}
                 type="text"
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 id={"fullName"}
                 required={true}
               />
@@ -56,6 +57,7 @@ function RegisterPage() {
                 label={t("registerPage.emailLabel")}
                 type="email"
                 id={"email"}
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 placeholder={t("registerPage.emailPlaceholder")}
                 required={true}
               />
@@ -64,6 +66,7 @@ function RegisterPage() {
                 label={t("registerPage.passwordLabel")}
                 type="password"
                 id={"password"}
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 required={true}
               />
 
@@ -73,6 +76,7 @@ function RegisterPage() {
                 type="password"
                 id={"repeatPassword"}
                 required={true}
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 classNameContainer="mb-8"
               />
 

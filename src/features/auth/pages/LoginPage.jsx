@@ -25,21 +25,18 @@ function LoginPage() {
 
   return (
     <div
+      dir={curLang === "en" ? "ltr" : "rtl"}
       className={`${isDark ? "bg-night" : "bg-light"} flex min-h-svh flex-col`}
     >
       <Logo
-        classNameString={"fixed max-815:inset-s-10 top-8 left-23 z-5555"}
+        classNameString={"fixed max-815:inset-s-10 top-8 inset-s-23 z-5555"}
         h={45}
       />
       <div
-        dir="ltr"
         className={`${isDark ? "bg-night" : "bg-light"} flex flex-1 animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
         {/* login side */}
-        <div
-          dir={curLang === "en" ? "ltr" : "rtl"}
-          className="815:w-[50%] flex w-full items-center justify-center"
-        >
+        <div className="815:w-[50%] flex w-full items-center justify-center">
           <div className="flex w-[50%] flex-col justify-center p-6">
             <form
               onSubmit={handleSubmit}
@@ -59,7 +56,7 @@ function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 disabled={isLoading}
-                dir="ltr"
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 label={t("loginPage.emailLabel")}
                 type="email"
                 id={"email"}
@@ -71,7 +68,7 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 disabled={isLoading}
-                dir="ltr"
+                dir={curLang === "en" ? "ltr" : "rtl"}
                 label={t("loginPage.passwordLabel")}
                 type="password"
                 id={"password"}

@@ -14,10 +14,13 @@ function ResetPasswordPage() {
   const curLang = i18n.language;
 
   return (
-    <div className={`${isDark ? "bg-night" : "bg-light"}`}>
+    <div
+      dir={curLang === "en" ? "ltr" : "rtl"}
+      className={`${isDark ? "bg-night" : "bg-light"}`}
+    >
       <>
         <Logo
-          classNameString={"fixed max-815:inset-s-10 top-8 left-23 z-5555"}
+          classNameString={"fixed max-815:inset-s-10 top-8 inset-s-23 z-5555"}
           h={45}
         />
         <div
@@ -44,6 +47,7 @@ function ResetPasswordPage() {
               required={true}
               classNameInput="w-60 text-lg"
               classNameContainer="mb-6"
+              dir={curLang === "en" ? "ltr" : "rtl"}
             />
             <ButtonForm
               type="submit"

@@ -114,5 +114,9 @@
     "emailPlaceholder": "Enter your email address",
     "resetButton": "Reset password",
     "backToLogin": "Back to login"
+  },
+  "toaster": {
+    "loginSuccess": "Logged in successfully",
+    "loginError": "Incorrect email or password. try again."
   }
 }

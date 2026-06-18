@@ -10,6 +10,14 @@
 
 - اصلاح ماهو موجود في Header Actions
 
+
+- حفظ ال language في ال local storage 
+
+
+- 
+
+- جعل ال navlinks في الوسط دائما
+
 - [⏳] جعل اللغة الحالية محفوظة في ال local storage
 
   video -- no download
