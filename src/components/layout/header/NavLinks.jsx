@@ -15,15 +15,17 @@ function NavLinks() {
   }`;
 
   return (
-    <ul className="hidden list-none items-center gap-1 lg:flex">
-      {navLinks.map((link) => (
-        <li key={link.link}>
-          <Link to={link.link} className={className}>
-            {curLang === "en" ? link.labelEn : link.labelAr}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className="fixed right-1/2 translate-x-1/2">
+      <ul className="hidden list-none items-center gap-1 lg:flex">
+        {navLinks.map((link) => (
+          <li key={link.link}>
+            <Link to={link.link} className={className}>
+              {curLang === "en" ? link.labelEn : link.labelAr}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

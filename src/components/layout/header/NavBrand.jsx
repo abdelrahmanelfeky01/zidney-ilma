@@ -4,7 +4,7 @@ import ButtonToggleTheme from "./buttons/ButtonToggleTheme";
 
 function NavBrand() {
   return (
-    <div className="flex justify-between gap-8">
+    <div className="flex items-center justify-between gap-8">
       <div>
         <Logo />
       </div>
