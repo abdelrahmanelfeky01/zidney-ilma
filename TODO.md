@@ -33,4 +33,4 @@
 6- In Courses Page -> Library for show videos
 7- In Courses Page -> Library for show pdf
 8- In Courses Page -> Library for show mp3
-9- In Courses Page -> Form MCQ
+9- In Courses Page -> Form (MCQ)
