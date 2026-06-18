@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 import Toaster from "./ui/ToasterComponent";
 import AppInitializer from "./components/AppInitializer";
-import ModalLogin from "./routes/ModalLogIn";
+import ModalLogin from "./routes/ModalLogin";
 
 function App() {
   return (

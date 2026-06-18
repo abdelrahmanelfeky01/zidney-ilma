@@ -9,10 +9,9 @@
 [✅] 3- Login Page - Purchased
 [✅] 4- Register Page - Purchased
 [✅] 5- Reset Password Page - Purchased
-[✅] 6- Reset Password Page - Purchased
-[✅] 7- Reset Password Template (HTML) - Purchased
-[✅] 8- Confirm Account Template (HTML) - Purchased
-[⏳] 9- Modal Login - Not Purchased
+[✅] 6- Reset Password Template (HTML) - Purchased
+[✅] 7- Confirm Account Template (HTML) - Purchased
+[⏳] 8- Modal Login - Not Purchased
 
 <!-- Logic -->
 
