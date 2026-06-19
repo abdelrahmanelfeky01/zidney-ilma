@@ -25,12 +25,13 @@
 
 ## Features
 
-1- Create Accounts with email -- Start from here
-2- Create Accounts with Google
-3- Signin with Google
-4- Reset Password
-5- Dashboard
-6- In Courses Page -> Library for show videos
-7- In Courses Page -> Library for show pdf
-8- In Courses Page -> Library for show mp3
-9- In Courses Page -> Form (MCQ)
+1- Logout -- Start from here
+2- Create Accounts with email
+3- Create Accounts with Google
+4- Signin with Google
+5- Reset Password
+6- Dashboard
+7- In Courses Page -> Library for show videos
+8- In Courses Page -> Library for show pdf
+9- In Courses Page -> Library for show mp3
+10- In Courses Page -> Form (MCQ)

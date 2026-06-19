@@ -38,7 +38,7 @@ function ResetPasswordPage() {
               {t("resetPasswordPage.description")}
             </p>
           </div>
-          <form className="600:w-[80%] 300:w-full">
+          <form autoComplete="on" className="600:w-[80%] 300:w-full">
             <Input
               label={t("resetPasswordPage.emailLabel")}
               type="email"

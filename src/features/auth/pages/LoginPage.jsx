@@ -14,8 +14,8 @@ function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
   const { t, i18n } = useTranslation();
   const curLang = i18n.language;
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@example.com");
+  const [password, setPassword] = useState("test1234");
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
@@ -39,6 +39,7 @@ function LoginPage() {
         <div className="815:w-[50%] flex w-full items-center justify-center">
           <div className="flex w-[50%] flex-col justify-center p-6">
             <form
+              autoComplete="on"
               onSubmit={handleSubmit}
               className="300:w-70 380:w-85 self-center"
             >

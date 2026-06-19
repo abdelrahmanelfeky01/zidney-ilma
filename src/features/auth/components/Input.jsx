@@ -26,6 +26,7 @@ function Input({
       </label>
       <div className="relative">
         <input
+          autoComplete="on"
           onChange={onChange}
           value={value}
           dir={dir}

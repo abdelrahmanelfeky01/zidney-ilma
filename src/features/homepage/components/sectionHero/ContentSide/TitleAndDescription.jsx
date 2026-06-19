@@ -7,7 +7,7 @@ function TitleAndDescription() {
   const isDark = useSelector((state) => state.general.isDark);
 
   const className = {
-    classNameTitle: `mb-4.5 text-[clamp(36px,4.5vw,58px)] leading-[1.3] font-bold ${isDark ? "text-[#f0ede6]" : "text-[#1a1a1a]"} leading-normal`,
+    classNameTitle: `mb-4.5 text-[clamp(36px,4.5vw,58px)] leading-[1.1] font-bold ${isDark ? "text-[#f0ede6]" : "text-[#1a1a1a]"} leading-normal`,
 
     classNameDescription: `mb-9 max-w-125 text-base leading-[1.85] ${isDark ? "text-[#a0b8a5]" : "text-[#4a4a4a]"}`,
   };
