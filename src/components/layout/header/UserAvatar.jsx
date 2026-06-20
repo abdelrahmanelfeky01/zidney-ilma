@@ -68,13 +68,13 @@ function UserAvatar() {
             <div className="border-description/20 h-1 border-b p-0 px-4 pb-5" />
 
             {/* Buttons */}
-            <ul className="text-title py-5">
+            <ul className="text-title divide-title/5 divide-y py-5">
               <li
                 className={` ${
                   isDark
                     ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
                     : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
-                } hover:bg-primary-green/10 cursor-pointer px-4 py-1.5 transition-all duration-300`}
+                } hover:bg-primary-green/10 cursor-pointer px-4 py-3 transition-all duration-300`}
               >
                 <button className="flex cursor-pointer items-center justify-center gap-2">
                   <IoSettingsOutline />
@@ -86,7 +86,7 @@ function UserAvatar() {
                   isDark
                     ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
                     : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
-                } hover:bg-primary-green/10 cursor-pointer px-4 py-1.5 transition-all duration-300`}
+                } hover:bg-primary-green/10 cursor-pointer px-4 py-3 transition-all duration-300`}
               >
                 <button className="flex cursor-pointer items-center justify-center gap-2">
                   <TbLogout className="translate-x-[0.100rem]" />

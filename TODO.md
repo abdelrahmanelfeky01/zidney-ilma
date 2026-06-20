@@ -1,5 +1,7 @@
 ## 🟡 In Progress
 
+Logout Logic -- ⏳
+
 ## 🟢 Done
 
 <!-- Static Pages -->
@@ -12,6 +14,7 @@
 [✅] 6- Reset Password Template (HTML) - Purchased
 [✅] 7- Confirm Account Template (HTML) - Purchased
 [⏳] 8- Modal Login - Not Purchased
+[⏳] 9- User Menu - Not Purchased
 
 <!-- Logic -->
 
@@ -23,15 +26,26 @@
 
 <!-- Backend -->
 
+## Small Features
+
+1- زر عرض جميع الكورسات اريده ان ياتي نفس ال Modal
+
+2- اضافة خط Devider بسيط بين الروابط في USER LINKS وفي ال NavLinks ايضا
+
 ## Features
 
-1- Logout -- Start from here
-2- Create Accounts with email
-3- Create Accounts with Google
-4- Signin with Google
-5- Reset Password
-6- Dashboard
-7- In Courses Page -> Library for show videos
-8- In Courses Page -> Library for show pdf
-9- In Courses Page -> Library for show mp3
-10- In Courses Page -> Form (MCQ)
+1- User Menu -- ✅
+2- Logout -- ⏳
+3- Create Accounts with email
+4- Create Accounts with Google
+5- Signin with Google
+6- Reset Password
+7- Profile Settings (static)
+8- Setting up Cron-job.org
+9- 404 Page
+11- Dashboard
+12- In Courses Page -> Library for show videos
+13- In Courses Page -> Library for show pdf
+14- In Courses Page -> Library for show mp3
+15- In Courses Page -> Form (MCQ)
+16- Profile Settings (static)

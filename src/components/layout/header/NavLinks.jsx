@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../../features/auth/hooks/useUser";
 import { toggleShowLoginModal } from "../../../store/generalSlice";
-import { useEffect } from "react";
 
-function NavLinks({ position = "nav", isOpen, setIsOpen }) {
+function NavLinks({ position = "nav", setIsOpen }) {
   const isDark = useSelector((state) => state.general.isDark);
   const { i18n } = useTranslation();
   const curLang = i18n.language;
@@ -35,11 +34,6 @@ function NavLinks({ position = "nav", isOpen, setIsOpen }) {
     }`,
   };
 
-  useEffect(() => {
-    console.log(isOpen);
-    console.log(setIsOpen);
-  });
-
   return (
     <>
       {navLinks.map((link) => (
@@ -49,10 +43,11 @@ function NavLinks({ position = "nav", isOpen, setIsOpen }) {
             end={link.link === "/"}
             className={position === "nav" ? className.nav : className.hamburger}
             onClick={(e) => {
+              e.preventDefault();
+
               if (position === "hamburger") setIsOpen(false);
 
               if (link.requiresAuth && !isAuthenticated && !isLoading) {
-                e.preventDefault();
                 dispatch(toggleShowLoginModal());
               }
               return;
