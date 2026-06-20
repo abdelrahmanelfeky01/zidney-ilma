@@ -31,12 +31,14 @@ function Header() {
         {/* For large screens */}
 
         {!isAuthenticated && !isLoginIn && <NavActions />}
-        {isLoginIn && (
-          <MiniSpinner className="flex translate-x-2.5 items-center justify-center" />
-        )}
 
         {/* For small screens */}
         <Hamburger />
+
+        {isLoginIn && (
+          <MiniSpinner className="flex translate-x-2.5 items-center justify-center" />
+        )}
+        
         {/* UserAvatar (show in large and small screens) */}
         {isAuthenticated && <UserAvatar />}
       </div>
