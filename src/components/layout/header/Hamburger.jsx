@@ -40,8 +40,8 @@ function HamburgerMenu({ isOpen, setIsOpen, handleToggleLanguage }) {
         <div className="px-5 py-4">
           {/* Nav Links */}
           <ul
-            className={`mb-4 flex list-none flex-col gap-5 border-b pb-4 ${
-              isDark ? "border-[#223028]" : "border-[#e8e0d0]"
+            className={`divide-title/4 mb-4 flex list-none flex-col gap-3 divide-y border-b pb-4 ${
+              isDark ? "border-[#223028]" : "border-[#e8e0d0] "
             }`}
           >
             <NavLinks

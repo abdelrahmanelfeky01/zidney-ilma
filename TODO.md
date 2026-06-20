@@ -19,6 +19,7 @@ Logout Logic -- ⏳
 <!-- Logic -->
 
 [⏳] 1- Login Logic - Not Purchased
+[⏳] 2- Logout Logic - Not Purchased
 
 <!-- Database -->
 
@@ -28,15 +29,11 @@ Logout Logic -- ⏳
 
 ## Small Features
 
-1- زر عرض جميع الكورسات اريده ان ياتي نفس ال Modal
-
-2- اضافة خط Devider بسيط بين الروابط في USER LINKS وفي ال NavLinks ايضا
-
 ## Features
 
 1- User Menu -- ✅
-2- Logout -- ⏳
-3- Create Accounts with email
+2- Logout -- ✅
+3- Create Accounts with email -- ⏳
 4- Create Accounts with Google
 5- Signin with Google
 6- Reset Password

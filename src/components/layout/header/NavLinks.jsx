@@ -43,11 +43,10 @@ function NavLinks({ position = "nav", setIsOpen }) {
             end={link.link === "/"}
             className={position === "nav" ? className.nav : className.hamburger}
             onClick={(e) => {
-              e.preventDefault();
-
               if (position === "hamburger") setIsOpen(false);
 
               if (link.requiresAuth && !isAuthenticated && !isLoading) {
+                e.preventDefault();
                 dispatch(toggleShowLoginModal());
               }
               return;

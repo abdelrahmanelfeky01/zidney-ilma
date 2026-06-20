@@ -5,25 +5,28 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-
+import { useLogout } from "../../../features/auth/hooks/useLogout";
+import MiniSpinner from "../../../ui/MiniSpinner";
 function UserAvatar() {
   const email = "hi@abdelrahmanelfeky.com";
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useSelector((state) => state.general);
   const { t, i18n } = useTranslation();
   const curLang = i18n.language;
+  const { logout, isLoading: isLoginOut } = useLogout();
 
-  function handleClick(e) {
+  function handleClickAvatar(e) {
     e.preventDefault();
     setIsOpen((prev) => !prev);
   }
+
 
   return (
     <div className="h-10 w-10 rounded-full">
       {/* Button */}
       <button
         className="relative z-1100 cursor-pointer rounded-full"
-        onClick={handleClick}
+        onClick={handleClickAvatar}
       >
         <img src={abdelrahmanElfeky} alt="User" className="rounded-full" />
       </button>
@@ -88,9 +91,16 @@ function UserAvatar() {
                     : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
                 } hover:bg-primary-green/10 cursor-pointer px-4 py-3 transition-all duration-300`}
               >
-                <button className="flex cursor-pointer items-center justify-center gap-2">
+                <button
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                  className="flex cursor-pointer items-center justify-center gap-2"
+                >
                   <TbLogout className="translate-x-[0.100rem]" />
                   {t("userMenu.logout")}
+                  {isLoginOut && <MiniSpinner />}
                 </button>
               </li>
             </ul>

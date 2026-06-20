@@ -9,7 +9,7 @@ import { useUser } from "../../../features/auth/hooks/useUser";
 
 function Header() {
   const isDark = useSelector((state) => state.general.isDark);
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated, isLoading: isLoginIn } = useUser();
 
   const className = `sticky top-0 right-0 left-0 z-1000 flex h-20 items-center justify-between px-4 backdrop-blur-2xl transition-colors duration-300 sm:px-6 lg:px-10 ${
     isDark
@@ -29,7 +29,12 @@ function Header() {
 
       <div className="flex items-center justify-between gap-5">
         {/* For large screens */}
-        <NavActions />
+
+        {!isAuthenticated && !isLoginIn && <NavActions />}
+        {isLoginIn && (
+          <MiniSpinner className="flex translate-x-2.5 items-center justify-center" />
+        )}
+
         {/* For small screens */}
         <Hamburger />
         {/* UserAvatar (show in large and small screens) */}

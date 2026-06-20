@@ -14,13 +14,13 @@ export async function login({ email, password }) {
 }
 
 export async function getCurrentUser() {
-  // 1. getSession >> for if there is current user loged in
+  // 1. getSession --> for if there is current user loged in
   const { data: session } = await supabase.auth.getSession();
 
-  // 2. if there is no user >> return null = no user
+  // 2. if there is no user --> return null = no user
   if (!session.session) return null;
 
-  // 3. ELSE?? there is a current user call getUser
+  // 3. ELSE?? there is a current user --> call getUser
   const { data: fullData, error } = await supabase.auth.getUser();
 
   // 4. if there is an error return error
@@ -28,4 +28,9 @@ export async function getCurrentUser() {
 
   // 5. if there is no error return user data
   return fullData.user;
+}
+
+export async function logout() {
+  const { error } = await supabase.auth.signOut({ scope: "local" });
+  if (error) throw new Error(error.message);
 }

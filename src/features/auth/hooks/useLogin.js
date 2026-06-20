@@ -11,7 +11,7 @@ export function useLogin() {
   const { isPending: isLoading, mutate: login } = useMutation({
     mutationFn: loginApi,
     onSuccess: () => {
-      navigate("/");
+      navigate("/", { replace: true });
       toast.success(t("toaster.loginSuccess"));
     },
     onError: () => {
