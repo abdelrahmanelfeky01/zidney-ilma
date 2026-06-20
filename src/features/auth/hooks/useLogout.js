@@ -12,8 +12,8 @@ export function useLogout() {
     mutationFn: logoutApi,
     onSettled: () => {
       queryClient.setQueryData(["user"], null);
-      navigate("/", { replace: true });
       toast("Successfully Logout");
+      navigate("/", { replace: true });
     },
   });
 
