@@ -20,7 +20,6 @@ function UserAvatar() {
     setIsOpen((prev) => !prev);
   }
 
-
   return (
     <div className="h-10 w-10 rounded-full">
       {/* Button */}
@@ -85,19 +84,17 @@ function UserAvatar() {
                 </button>
               </li>
               <li
+                onClick={() => {
+                  logout();
+                  setIsOpen(false);
+                }}
                 className={`${isDark ? "bg-night" : "bg-light"} ${
                   isDark
                     ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
                     : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
                 } hover:bg-primary-green/10 cursor-pointer px-4 py-3 transition-all duration-300`}
               >
-                <button
-                  onClick={() => {
-                    logout();
-                    setIsOpen(false);
-                  }}
-                  className="flex cursor-pointer items-center justify-center gap-2"
-                >
+                <button className="flex cursor-pointer items-center justify-center gap-2">
                   <TbLogout className="translate-x-[0.100rem]" />
                   {t("userMenu.logout")}
                   {isLoginOut && <MiniSpinner />}
