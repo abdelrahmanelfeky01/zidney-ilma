@@ -117,7 +117,8 @@
   },
   "toaster": {
     "loginSuccess": "Logged in successfully",
-    "loginError": "Incorrect email or password. try again."
+    "loginError": "Incorrect email or password. try again.",
+    "logoutSuccess": "Logged out"
   },
   "modalLogin": {
     "title": "Log in to continue learning",
