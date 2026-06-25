@@ -18,6 +18,9 @@
 
   --color-title: ;
   --color-description: ;
+  --color-error: ;
+  --color-warn: ;
+  --color-success: ;
 
   /* Breakpoints */
   --breakpoint-300: 300px;
@@ -34,11 +37,17 @@
 [data-theme="light"] {
   --color-title: #333;
   --color-description: #555;
+  --color-error: #dc2626;
+  --color-warn: oklch(66.905% 0.13679 86.983);
+  --color-success: oklch(52.935% 0.15121 148.528 / 0.774);
 }
 
 [data-theme="night"] {
   --color-title: #e8ede8;
   --color-description: #9aaa9a;
+  --color-error: #f87171;
+  --color-warn: oklch(73.734% 0.15077 86.76);
+  --color-success: oklch(60.995% 0.17582 148.175);
 }
 
 html {

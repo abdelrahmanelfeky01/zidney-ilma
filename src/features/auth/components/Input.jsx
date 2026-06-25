@@ -2,22 +2,26 @@ import { useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 
 function Input({
+  onChange = () => {},
+  onBlur = () => {},
+  ref = () => {},
+  name = "",
+  isError = false,
   label = "label",
   type = "text",
-  onChange = () => {},
-  value,
   disabled = false,
   id = type,
+
   placeholder = "",
   classNameContainer = "",
   classNameInput = "",
-  required = true,
   dir = "ltr",
+  mb = true,
 }) {
   const [eyeShow, setEyeShow] = useState(false);
 
   return (
-    <div className={`${classNameContainer} mb-4`}>
+    <div className={`${mb && "mb-4"} ${classNameContainer}`}>
       <label
         htmlFor={id}
         className="text-title mb-1 block translate-x-0.5 font-medium"
@@ -26,15 +30,16 @@ function Input({
       </label>
       <div className="relative">
         <input
+          onBlur={onBlur}
+          ref={ref}
+          name={name}
           autoComplete="on"
           onChange={onChange}
-          value={value}
           dir={dir}
           disabled={disabled}
-          required={required}
           id={id}
           placeholder={placeholder}
-          className={`${classNameInput} border-primary-green/30 text-title focus:ring-primary-green-heavy/60 w-full rounded-lg border p-2.5 outline-none focus:ring-1 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50`}
+          className={`${isError ? "border-error/70 focus:ring-error/60 " : "focus:ring-primary-green-heavy/60 border-primary-green/30"} text-title w-full rounded-lg border p-2.5 outline-none focus:ring-1 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${classNameInput}`}
           type={
             type !== "password"
               ? type
