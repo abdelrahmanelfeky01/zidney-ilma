@@ -15,6 +15,7 @@ Logout Logic -- ⏳
 [✅] 7- Confirm Account Template (HTML) - Purchased
 [⏳] 8- Modal Login - Not Purchased
 [⏳] 9- User Menu - Not Purchased
+[⏳] 10- Signup form validation - Not Purchased
 
 <!-- Logic -->
 
@@ -29,18 +30,18 @@ Logout Logic -- ⏳
 
 ## Small Features
 
-
 ## Features
 
 1- User Menu -- ✅
 2- Logout -- ✅
-3- Create Accounts with email -- ⏳
-4- Create Accounts with Google
-5- Signin with Google
-6- Reset Password
-7- Profile Settings (static)
-8- Setting up Cron-job.org
-9- 404 Page
+3- Signup form validation -- ✅
+4- Create Accounts with email -- ⏳
+5- Create Accounts with Google
+6- Signin with Google
+7- Reset Password
+8- Profile Settings (static)
+9- Setting up Cron-job.org
+10- 404 Page
 11- Dashboard
 12- In Courses Page -> Library for show videos
 13- In Courses Page -> Library for show pdf
