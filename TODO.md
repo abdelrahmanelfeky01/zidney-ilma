@@ -2,8 +2,6 @@
 
 Logout Logic -- ⏳
 
-test
-
 ## 🟢 Done
 
 <!-- Static Pages -->
