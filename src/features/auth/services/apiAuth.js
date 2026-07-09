@@ -7,7 +7,28 @@ export async function signUp({ fullName, email, password }) {
     options: { data: { fullName: fullName, avatar: "" } },
   });
 
+  console.log("from signUpApi");
+  console.log(data);
+
+  if (data.user && data.user.identities.length === 0) {
+    throw new Error(
+      "لديك حساب بهذا البريد الإلكتروني بالفعل. الرجاء تسجيل الدخول.",
+    );
+  }
+
   if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function confirmSignUp({ email, token }) {
+  const { data, error } = await supabase.auth.verifyOtp({
+    email,
+    token,
+    type: "signup",
+  });
+
+  if (error) throw new Error(error.message);
+
   return data;
 }
 

@@ -6,12 +6,14 @@ function Input({
   onBlur = () => {},
   ref = () => {},
   name = "",
+  maxLength = null,
   isError = false,
   label = "label",
+  isLabel = true,
   type = "text",
   disabled = false,
+  value,
   id = type,
-
   placeholder = "",
   classNameContainer = "",
   classNameInput = "",
@@ -22,22 +24,27 @@ function Input({
 
   return (
     <div className={`${mb && "mb-4"} ${classNameContainer}`}>
-      <label
-        htmlFor={id}
-        className="text-title mb-1 block translate-x-0.5 font-medium"
-      >
-        {label}
-      </label>
+      {isLabel && (
+        <label
+          htmlFor={id}
+          className="text-title mb-1 block translate-x-0.5 font-medium"
+        >
+          {label}
+        </label>
+      )}
+
       <div className="relative">
         <input
           onBlur={onBlur}
           ref={ref}
           name={name}
+          maxLength={maxLength}
           autoComplete="on"
           onChange={onChange}
           dir={dir}
           disabled={disabled}
           id={id}
+          value={value}
           placeholder={placeholder}
           className={`${isError ? "border-error/70 focus:ring-error/60 " : "focus:ring-primary-green-heavy/60 border-primary-green/30"} text-title w-full rounded-lg border p-2.5 outline-none focus:ring-1 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${classNameInput}`}
           type={

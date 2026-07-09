@@ -1,6 +1,6 @@
 ## 🟡 In Progress
 
-Logout Logic -- ⏳
+اصلاح البريد الالكتروني
 
 ## 🟢 Done
 
@@ -14,13 +14,14 @@ Logout Logic -- ⏳
 [✅] 6- Reset Password Template (HTML) - Purchased
 [✅] 7- Confirm Account Template (HTML) - Purchased
 [⏳] 8- Modal Login - Not Purchased
-[⏳] 9- User Menu - Not Purchased
+[⏳] 9- User Menu (static) - Not Purchased
 [⏳] 10- Signup form validation - Not Purchased
 
 <!-- Logic -->
 
-[⏳] 1- Login Logic - Not Purchased
-[⏳] 2- Logout Logic - Not Purchased
+[⏳] 1- SignUp Logic - Not Purchased
+[⏳] 2- Login Logic - Not Purchased
+[⏳] 3- Logout Logic - Not Purchased
 
 <!-- Database -->
 
@@ -35,8 +36,8 @@ Logout Logic -- ⏳
 1- User Menu -- ✅
 2- Logout -- ✅
 3- Signup form validation -- ✅
-4- Create Accounts with email -- ⏳
-5- Create Accounts with Google
+4- Create Accounts with email -- ✅
+5- Create Accounts with Google -- ⏳
 6- Signin with Google
 7- Reset Password
 8- Profile Settings (static)

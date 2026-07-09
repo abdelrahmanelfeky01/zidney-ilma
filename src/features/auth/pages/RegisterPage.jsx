@@ -1,5 +1,4 @@
 // Eco System
-import toast from "react-hot-toast";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -10,16 +9,17 @@ import FormSignUp from "../components/FormSignUp";
 import Logo from "../../../ui/Logo";
 import pageCover from "../../../assets/images/loginPage_registerPage/pageCover.webp";
 import { useSignup } from "../hooks/useSignup";
-
-// icons
+import ConfirmSignUp from "../components/ConfirmSignUp";
+import MiniSpinner from "../../../ui/MiniSpinner";
 
 function RegisterPage() {
   // Local State
   const [showForm, setShowForm] = useState(true);
+  const [confirmedEmail, setConfirmedEmail] = useState("");
 
   // Hook State
   const isDark = useSelector((state) => state.general.isDark);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { isLoading, signup } = useSignup();
   const { register, control, handleSubmit, formState, reset } = useForm({
     mode: "onChange",
@@ -30,14 +30,8 @@ function RegisterPage() {
   const { errors } = formState;
 
   function onSubmit({ fullName, email, password }) {
-    // 1. Unshow form
+    setConfirmedEmail(email);
     setShowForm(false);
-
-    // 2. Sign up
-
-    // 2. Show Spinner
-
-    // 3. Show Screen that enter OTP in to it
 
     signup(
       { fullName, email, password },
@@ -45,14 +39,15 @@ function RegisterPage() {
         onSettled: () => {
           reset();
         },
+        onError: () => {
+          setShowForm(true);
+        },
       },
     );
   }
 
-  function onError(error) {
-    console.log("from error");
-    console.log(error);
-    toast.error("Error from on Error");
+  function onError(errors) {
+    console.log(errors);
   }
 
   return (
@@ -69,13 +64,20 @@ function RegisterPage() {
       <div
         className={`${isDark ? "bg-night" : "bg-light"} max-815:mt-4 flex flex-1 animate-[fadeIn_0.5s_ease] items-center justify-between`}
       >
-        {/* Register side */}
+        {/* Register Form */}
+
         <div
           dir={curLang === "en" ? "ltr" : "rtl"}
           className={`${isDark ? "bg-night" : "bg-light"} 815:w-[50%] 815:pt-20 flex w-full items-center justify-center`}
         >
           <div className="flex w-[50%] flex-col justify-center p-6">
-            {showForm ? (
+            {isLoading && (
+              <div className="flex items-center justify-center">
+                <MiniSpinner size="xl" />
+              </div>
+            )}
+
+            {showForm && !isLoading && (
               <FormSignUp
                 onSubmit={onSubmit}
                 onError={onError}
@@ -84,11 +86,16 @@ function RegisterPage() {
                 control={control}
                 handleSubmit={handleSubmit}
               />
-            ) : (
-              <p className="text-description">Not show form</p>
+            )}
+
+            {!showForm && !isLoading && (
+              <div className="flex items-center justify-center">
+                <ConfirmSignUp email={confirmedEmail} />
+              </div>
             )}
           </div>
         </div>
+
         {/* image side */}
 
         <div
