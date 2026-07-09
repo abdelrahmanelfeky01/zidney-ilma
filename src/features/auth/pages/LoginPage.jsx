@@ -14,8 +14,8 @@ function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
   const { t, i18n } = useTranslation();
   const curLang = i18n.language;
-  const [email, setEmail] = useState("test@example.com");
-  const [password, setPassword] = useState("test1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
