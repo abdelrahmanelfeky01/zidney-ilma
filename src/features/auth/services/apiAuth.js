@@ -45,6 +45,18 @@ export async function login({ email, password }) {
   return fullData;
 }
 
+export async function signInWithGoogle() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin,
+    },
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
 export async function getCurrentUser() {
   // 1. getSession --> for if there is current user loged in
   const { data: session } = await supabase.auth.getSession();

@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useLogout } from "../../../features/auth/hooks/useLogout";
 import MiniSpinner from "../../../ui/MiniSpinner";
+import { LuCircleUserRound } from "react-icons/lu";
+
 function UserAvatar() {
   const email = "hi@abdelrahmanelfeky.com";
   const [isOpen, setIsOpen] = useState(false);
@@ -21,13 +23,14 @@ function UserAvatar() {
   }
 
   return (
-    <div className="h-10 w-10 rounded-full">
+    <div className="flex h-10 w-10 items-center justify-center rounded-full">
       {/* Button */}
       <button
-        className="relative z-1100 cursor-pointer rounded-full"
+        className="relative z-1100 flex cursor-pointer items-center justify-center rounded-full"
         onClick={handleClickAvatar}
       >
         <img src={abdelrahmanElfeky} alt="User" className="rounded-full" />
+        {/* <LuCircleUserRound /> */}
       </button>
 
       {/* Menu */}
@@ -51,11 +54,12 @@ function UserAvatar() {
               dir="ltr"
               className="flex cursor-pointer items-center justify-center gap-3 p-4 pt-6 pb-3"
             >
-              <img
+              {/* <img
                 src={abdelrahmanElfeky}
                 alt="User"
                 className="h-10 w-10 rounded-full"
-              />
+              /> */}
+              <LuCircleUserRound />
               <div>
                 <h3 className="text-title font-semibold">Abdelrahman Elfeky</h3>
                 <p className="text-description text-sm">

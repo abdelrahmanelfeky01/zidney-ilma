@@ -20,6 +20,7 @@ import {
 
 // Icons
 import { FcGoogle } from "react-icons/fc";
+import { useSigninWithGoogle } from "../hooks/useSigninWithGoogle";
 
 function FormSignUp({
   onSubmit,
@@ -33,6 +34,7 @@ function FormSignUp({
   const curLang = i18n.language;
   const isDark = useSelector((state) => state.general.isDark);
   const inputsValue = useWatch({ control });
+  const { signInWithGoogle, isLoading } = useSigninWithGoogle();
 
   return (
     <form
@@ -213,6 +215,11 @@ function FormSignUp({
 
         {/* Sign in with google */}
         <ButtonForm
+          onClick={(e) => {
+            e.preventDefault();
+            signInWithGoogle();
+          }}
+          disabled={isLoading}
           className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border`}
         >
           <FcGoogle className="text-2xl" />
