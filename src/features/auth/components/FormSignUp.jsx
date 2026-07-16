@@ -8,6 +8,7 @@ import { useWatch } from "react-hook-form";
 import Input from "./Input";
 import InputFeedback from "./InputFeedback";
 import ButtonForm from "./ButtonForm";
+import MiniSpinner from "../../../ui/MiniSpinner";
 
 // Helper Functions
 import {
@@ -18,9 +19,7 @@ import {
   isValidPassword,
 } from "../../../utils/helpers";
 
-// Icons
-import { FcGoogle } from "react-icons/fc";
-import { useSigninWithGoogle } from "../hooks/useSigninWithGoogle";
+import { useGoogleSignInButton } from "../hooks/useGoogleSignInButton";
 
 function FormSignUp({
   onSubmit,
@@ -34,7 +33,8 @@ function FormSignUp({
   const curLang = i18n.language;
   const isDark = useSelector((state) => state.general.isDark);
   const inputsValue = useWatch({ control });
-  const { signInWithGoogle, isLoading } = useSigninWithGoogle();
+  const { buttonRef: googleButtonRef, isLoading: isLoginWithGoogle } =
+    useGoogleSignInButton();
 
   return (
     <form
@@ -214,17 +214,10 @@ function FormSignUp({
         </ButtonForm>
 
         {/* Sign in with google */}
-        <ButtonForm
-          onClick={(e) => {
-            e.preventDefault();
-            signInWithGoogle();
-          }}
-          disabled={isLoading}
-          className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border`}
-        >
-          <FcGoogle className="text-2xl" />
-          {t("registerPage.googleButton")}
-        </ButtonForm>
+        <div className="mb-4 flex flex-col items-center gap-2">
+          <div ref={googleButtonRef} />
+          {isLoginWithGoogle && <MiniSpinner />}
+        </div>
 
         <p
           onClick={(e) => e.preventDefault()}

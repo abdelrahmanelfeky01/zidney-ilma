@@ -1,7 +1,6 @@
 import pageCover from "../../../assets/images/loginPage_registerPage/pageCover.webp";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import Input from "../components/Input";
 import ButtonForm from "../components/ButtonForm";
 import ButtonLink from "../components/ButtonLink";
@@ -9,7 +8,8 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useLogin } from "../../auth/hooks/useLogin";
 import Logo from "../../../ui/Logo";
-import { useSigninWithGoogle } from "../hooks/useSigninWithGoogle";
+import { useGoogleSignInButton } from "../hooks/useGoogleSignInButton";
+import MiniSpinner from "../../../ui/MiniSpinner";
 
 function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
@@ -19,8 +19,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
 
-  const { signInWithGoogle, isLoading: isLoginWithGoogle } =
-    useSigninWithGoogle();
+  const { buttonRef: googleButtonRef, isLoading: isLoginWithGoogle } =
+    useGoogleSignInButton();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -95,17 +95,10 @@ function LoginPage() {
                 </ButtonForm>
 
                 {/* Sign in with google */}
-                <ButtonForm
-                  onClick={(e) => {
-                    e.preventDefault();
-                    signInWithGoogle();
-                  }}
-                  disabled={isLoginWithGoogle}
-                  className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border`}
-                >
-                  <FcGoogle className="text-2xl" />
-                  {t("loginPage.googleButton")}
-                </ButtonForm>
+                <div className="mt-3 flex flex-col items-center gap-2">
+                  <div ref={googleButtonRef} />
+                  {isLoginWithGoogle && <MiniSpinner />}
+                </div>
 
                 <p
                   onClick={(e) => e.preventDefault()}
