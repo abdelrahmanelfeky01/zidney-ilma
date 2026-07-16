@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useResetPassword } from "../hooks/useResetPassword";
+import { useResendResetPassword } from "../hooks/useResendResetPassword";
 import useVerifyResetPasswordOtp from "../hooks/useVerifyResetPasswordOtp";
 import useUpdatePassword from "../hooks/useUpdatePassword";
 import MiniSpinner from "../../../ui/MiniSpinner";
@@ -25,7 +26,6 @@ import {
   hasLettersAndNumbers,
   isValidPassword,
 } from "../../../utils/helpers";
-import { resendResetPassword } from "../services/apiAuth";
 
 function ResetPasswordPage() {
   const navigate = useNavigate();
@@ -47,6 +47,10 @@ function ResetPasswordPage() {
     isError: isOtpError,
   } = useVerifyResetPasswordOtp();
 
+  // ---- Step 2b: resend OTP (نفس الـ endpoint بتاع الإرسال الأول، هوك منفصل بتوست مختلف) ----
+  const { resendResetPassword, isLoading: isResending } =
+    useResendResetPassword();
+
   // ---- Step 3: set new password ----
   const { updatePassword, isLoading: isUpdatingPassword } = useUpdatePassword();
 
@@ -59,10 +63,12 @@ function ResetPasswordPage() {
 
   const inputsValue = useWatch({ control });
 
+  // الـ spinner الكامل بيغطي فقط الخطوات اللي مفيش فيها تفاعل تاني ممكن يحصل
+  // أثناء التحميل (إرسال الإيميل الأول، تحديث الباسورد). أما إعادة الإرسال
+  // فبتظهر بمؤشر صغير جنب رابط "Click to resend" نفسه عشان المستخدم يفضل
+  // شايف الـ OTP input ومايتفاجئش إن الشاشة اختفت.
   const isProcessing = isSendingEmail || isVerifyingOtp || isUpdatingPassword;
 
-  // هاندلرات الخطوتين اللي مفيهمش react-hook-form. مش بتاخد event
-  // من submit خالص — بتشتغل من زرار click عادي أو من Enter (عن طريق keydown).
   function handleSendResetEmail() {
     if (!email) return;
 
@@ -80,6 +86,11 @@ function ResetPasswordPage() {
         onSuccess: () => setStep(3),
       },
     );
+  }
+
+  function handleResendOtp() {
+    if (isResending || !email) return;
+    resendResetPassword(email);
   }
 
   // يستدعى من onKeyDown على مستوى الـ form. بيمنع أي submit افتراضي
@@ -135,7 +146,6 @@ function ResetPasswordPage() {
                 No worries, we'll send you reset instructions.
               </p>
             </div>
-            {/* من غير onSubmit خالص. Enter بيتمسك في onKeyDown ويعمل نفس اللي الزرار بيعمله */}
             <form
               autoComplete="on"
               onKeyDown={handleEnterKey(handleSendResetEmail)}
@@ -199,7 +209,6 @@ function ResetPasswordPage() {
               </p>
             </div>
 
-            {/* من غير onSubmit خالص هنا كمان */}
             <form
               autoComplete="on"
               onKeyDown={handleEnterKey(handleVerifyOtp)}
@@ -240,12 +249,18 @@ function ResetPasswordPage() {
 
             <p className="text-description mb-8 text-center">
               Didn't receive the email?{" "}
-              <span
-                onClick={() => resendResetPassword(email)}
-                className="text-primary-green-heavy cursor-pointer font-semibold hover:underline"
-              >
-                Click to resend
-              </span>
+              {isResending ? (
+                <span className="text-primary-green-heavy inline-flex items-center gap-1 font-semibold">
+                  <MiniSpinner />
+                </span>
+              ) : (
+                <span
+                  onClick={handleResendOtp}
+                  className="text-primary-green-heavy cursor-pointer font-semibold hover:underline"
+                >
+                  Click to resend
+                </span>
+              )}
             </p>
 
             <ButtonLink
@@ -263,7 +278,6 @@ function ResetPasswordPage() {
         )}
 
         {/* Step 3 -> set new password */}
-
         {step === 3 && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}

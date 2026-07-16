@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { resendResetPassword as resendResetPasswordApi } from "../services/apiAuth";
 import toast from "react-hot-toast";
 
-export function useResetPassword() {
+export function useResendResetPassword() {
   const {
     mutate: resendResetPassword,
     isPending: isLoading,

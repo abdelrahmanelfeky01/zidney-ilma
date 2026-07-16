@@ -26,6 +26,7 @@
 [⏳] 2- Login Logic - Not Purchased
 [⏳] 3- Logout Logic - Not Purchased
 [⏳] 4- Create Accounts and signin with Google - Not Purchased
+[⏳] 5- Reset Password Logic - Not Purchased
 
 <!-- Database -->
 
@@ -42,8 +43,8 @@
 3- Signup form validation -- ✅
 4- Create Accounts with email -- ✅
 5- Create Accounts and signin with Google -- ✅
-6- Load user information
-7- Reset Password
+6- Reset Password
+7- Load user information
 8- Profile Settings (static)
 9- Setting up Cron-job.org
 10- 404 Page
