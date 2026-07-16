@@ -78,3 +78,12 @@ export async function logout() {
   const { error } = await supabase.auth.signOut({ scope: "local" });
   if (error) throw new Error(error.message);
 }
+
+export async function resetPassword(email) {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(
+    email.trim(),
+  );
+
+  if (error) throw new Error(error.message);
+  return data;
+}
