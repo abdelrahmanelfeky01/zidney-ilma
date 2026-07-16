@@ -79,11 +79,29 @@ export async function logout() {
   if (error) throw new Error(error.message);
 }
 
+// Reset Password
+
 export async function resetPassword(email) {
   const { data, error } = await supabase.auth.resetPasswordForEmail(
     email.trim(),
   );
 
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function verifyResetPasswordOtp({ email, token }) {
+  const { data, error } = await supabase.auth.verifyOtp({
+    email,
+    token,
+    type: "recovery",
+  });
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function updatePassword(password) {
+  const { data, error } = await supabase.auth.updateUser({ password });
   if (error) throw new Error(error.message);
   return data;
 }

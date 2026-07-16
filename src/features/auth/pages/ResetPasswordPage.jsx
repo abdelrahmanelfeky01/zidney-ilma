@@ -8,7 +8,7 @@ import Input from "../components/Input";
 import InputFeedback from "../components/InputFeedback";
 import ButtonForm from "../components/ButtonForm";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonLink from "../components/ButtonLink";
 import { useTranslation } from "react-i18next";
 import Logo from "../../../ui/Logo";
@@ -22,18 +22,35 @@ import {
   hasLettersAndNumbers,
   isValidPassword,
 } from "../../../utils/helpers";
+import useVerifyResetPasswordOtp from "../../auth/hooks/useVerifyResetPasswordOtp";
+import useUpdatePassword from "../../auth/hooks/useUpdatePassword";
 
 function ResetPasswordPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState();
-  const { resetPassword, isLoading, isError } = useResetPassword();
-
-  const [step, setStep] = useState(3);
+  const [otp, setOtp] = useState("");
+  const [step, setStep] = useState(1);
 
   const { isDark } = useSelector((state) => state.general);
   const { i18n } = useTranslation();
   const curLang = i18n.language;
 
-  // React Hook Form - خاص بخطوة كلمة المرور الجديدة فقط
+  // Reset Password
+
+  const { resetPassword, isLoading, isError } = useResetPassword();
+
+  const {
+    isError: isErrorSendingOTP,
+    isLoading: isSendingOTP,
+    verifyResetPasswordOtp,
+  } = useVerifyResetPasswordOtp();
+
+  const {
+    isLoading: isSendingNewPassword,
+    updatePassword,
+    isError: isErrorSendingNewPassword,
+  } = useUpdatePassword();
+
   const {
     register,
     handleSubmit,
@@ -42,9 +59,9 @@ function ResetPasswordPage() {
   } = useForm();
 
   const inputsValue = useWatch({ control });
+  const password = inputsValue.password;
 
   function onSubmitNewPassword(data) {
-    // سيتم إضافة منطق تحديث كلمة المرور لاحقًا
     console.log(data);
   }
 
@@ -61,7 +78,8 @@ function ResetPasswordPage() {
           h={45}
         />
 
-        {step === 1 && (
+        {/* Step 1 -> send email to backend */}
+        {step === 1 && !isLoading && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -118,7 +136,8 @@ function ResetPasswordPage() {
           </div>
         )}
 
-        {step === 2 && (
+        {/* Step 1 -> send otp to backend */}
+        {step === 2 && !isSendingOTP && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -131,13 +150,15 @@ function ResetPasswordPage() {
                 Password reset
               </h2>
               <p className="text-description 380:text-xl 300:text-lg">
-                We sent a code to {email ? email : "your email"}
+                We've sent an OTP to your email address. Please enter the OTP to
+                reset your password.
               </p>
             </div>
 
-            {/* OTP Input - نسخة طبق الأصل من ConfirmSignUp */}
             <form autoComplete="on" className="600:w-[80%] 300:w-full">
               <Input
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
                 isLabel={false}
                 maxLength="6"
                 label="Enter OTP"
@@ -147,19 +168,18 @@ function ResetPasswordPage() {
               />
 
               <ButtonForm
+                onClick={(e) => {
+                  e.preventDefault();
+                  verifyResetPasswordOtp({ email: email, token: otp });
+                  if (!isErrorSendingOTP && !isSendingOTP) setStep(3);
+                }}
+                disabled={isSendingOTP}
                 type="button"
                 className="bg-primary-green-heavy mb-6 text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
               >
                 Continue
               </ButtonForm>
             </form>
-
-            <p className="text-description mb-8 text-center">
-              Didn't receive the email?{" "}
-              <span className="text-primary-green-heavy cursor-pointer font-semibold hover:underline">
-                Click to resend
-              </span>
-            </p>
 
             <ButtonLink
               to="/login"
@@ -175,7 +195,7 @@ function ResetPasswordPage() {
           </div>
         )}
 
-        {step === 3 && (
+        {step === 3 && !isSendingNewPassword && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -198,7 +218,6 @@ function ResetPasswordPage() {
               autoComplete="on"
               className="600:w-[80%] 300:w-full"
             >
-              {/* New Password - نسخة طبق الأصل من FormSignUp */}
               <div className="mb-5">
                 <Input
                   {...register("password", {
@@ -244,7 +263,6 @@ function ResetPasswordPage() {
                 </div>
               </div>
 
-              {/* Confirm Password - نسخة طبق الأصل من FormSignUp */}
               <div className="mb-8">
                 <Input
                   {...register("repeatPassword", {
@@ -282,6 +300,13 @@ function ResetPasswordPage() {
               </div>
 
               <ButtonForm
+                onClick={(e) => {
+                  e.preventDefault();
+                  updatePassword(password);
+                  if (!isErrorSendingNewPassword && !isSendingNewPassword)
+                    navigate("/login");
+                }}
+                disabled={isSendingNewPassword}
                 type="submit"
                 className="bg-primary-green-heavy text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
               >
