@@ -28,12 +28,14 @@ function ResetPasswordPage() {
       className={`${isDark ? "bg-night" : "bg-light"}`}
     >
       {isLoading && <Spinner />}
-      {step === 1 && (
-        <>
-          <Logo
-            classNameString={"fixed max-815:inset-s-10 top-8 inset-s-23 z-5555"}
-            h={45}
-          />
+
+      <>
+        <Logo
+          classNameString={"fixed max-815:inset-s-10 top-8 inset-s-23 z-5555"}
+          h={45}
+        />
+
+        {step === 1 && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -91,8 +93,8 @@ function ResetPasswordPage() {
               </span>
             </ButtonLink>
           </div>
-        </>
-      )}
+        )}
+      </>
     </div>
   );
 }
