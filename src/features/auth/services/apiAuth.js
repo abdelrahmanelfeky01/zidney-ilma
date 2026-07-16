@@ -57,6 +57,17 @@ export async function signInWithGoogle() {
   return data;
 }
 
+export async function signInWithGoogleIdToken({ token, nonce }) {
+  const { data, error } = await supabase.auth.signInWithIdToken({
+    provider: "google",
+    token,
+    nonce,
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
 export async function getCurrentUser() {
   // 1. getSession --> for if there is current user loged in
   const { data: session } = await supabase.auth.getSession();
