@@ -1,9 +1,5 @@
 ## 🟡 In Progress
 
-
-المشكلة انه اذا غيرت اللغة الحالية يجب على اعادة تحميل الصفحة لكي يعرف زر تسجيل الدخول عبر جوجل بهذا الامر.
-
-
 تعديل النصوص والتأكد من ال responsive
 اصلاح صفحة تسجيل الدخول عبر جوجل
 اضافة ميزة تسجيل الدخول عبر جوجل مباشرة بمجرد الدخول للموقع وانا لست مسجلا للدخول
@@ -11,7 +7,7 @@
 
 ## 🟢 Done
 
-<!-- Static Pages -->
+<!-- Static -->
 
 [✅] 1- Home Page - Purchased
 [✅] 2- Courses Page - Purchased
@@ -47,8 +43,8 @@
 3- Signup form validation -- ✅
 4- Create Accounts with email -- ✅
 5- Create Accounts and signin with Google -- ✅
-6- Reset Password
-7- Load user information
+6- Reset Password Logic -- ✅
+7- Load user information -- ⏳
 8- Profile Settings (static)
 9- Setting up Cron-job.org
 10- 404 Page
