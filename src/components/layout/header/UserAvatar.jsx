@@ -11,6 +11,7 @@ import { LuCircleUserRound } from "react-icons/lu";
 
 function UserAvatar() {
   const email = "hi@abdelrahmanelfeky.com";
+  const name = "Abdelrahman Elfeky";
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useSelector((state) => state.general);
   const { t } = useTranslation();
@@ -60,7 +61,10 @@ function UserAvatar() {
               /> */}
               <LuCircleUserRound className="text-3xl" />
               <div>
-                <h3 className="text-title font-semibold">Abdelrahman Elfeky</h3>
+                <h3 className="text-title font-semibold">
+                  {name.slice(0, 15)}
+                  {email.length > 15 && "..."}
+                </h3>
                 <p className="text-description text-sm">
                   {email.slice(0, 15)}
                   {email.length > 15 && "...."}
