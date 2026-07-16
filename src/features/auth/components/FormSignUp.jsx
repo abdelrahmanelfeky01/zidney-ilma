@@ -215,7 +215,7 @@ function FormSignUp({
 
         {/* Sign in with google */}
         <div className="mb-4 flex flex-col items-center gap-2">
-          <div ref={googleButtonRef} />
+          <div ref={googleButtonRef} dir={curLang === "en" ? "ltr" : "rtl"} />
           {isLoginWithGoogle && <MiniSpinner />}
         </div>
 

@@ -1,17 +1,19 @@
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { generateNonce } from "../../../utils/helpers";
 import { useSigninWithGoogle } from "./useSigninWithGoogle";
-import { useTranslation } from "react-i18next";
+
+const GSI_SCRIPT_ID = "google-identity-services-script";
 
 export function useGoogleSignInButton() {
   const isDark = useSelector((state) => state.general.isDark);
+  const { i18n } = useTranslation();
+  const curLang = i18n.language;
   const { signInWithGoogleIdTokenFn, isLoading } = useSigninWithGoogle();
   const buttonRef = useRef(null);
   const nonceRef = useRef(null);
   const signInRef = useRef(signInWithGoogleIdTokenFn);
-  const { i18n } = useTranslation();
-  const curLang = i18n.language;
 
   useEffect(() => {
     signInRef.current = signInWithGoogleIdTokenFn;
@@ -39,32 +41,40 @@ export function useGoogleSignInButton() {
           },
         });
 
+        // إفراغ الحاوية قبل إعادة الرسم لتفادي تكرار الزر عند تغيير اللغة أو الوضع الليلي
+        buttonRef.current.innerHTML = "";
+
         google.accounts.id.renderButton(buttonRef.current, {
           theme: isDark ? "filled_black" : "outline",
           size: "large",
           shape: "rectangular",
           text: "continue_with",
-          width: 340,
-          locale: curLang === "ar" ? "ar" : "en",
+          width: 320,
+          locale: curLang,
         });
       }
 
-      if (window.google?.accounts?.id) {
-        initializeGoogle();
-      } else {
-        const existingScript = document.querySelector(
-          'script[src="https://accounts.google.com/gsi/client"]',
-        );
+      const existingScript = document.getElementById(GSI_SCRIPT_ID);
+      const alreadyLoadedWithCorrectLocale =
+        existingScript && existingScript.dataset.hl === curLang;
 
-        if (existingScript) {
-          existingScript.addEventListener("load", initializeGoogle);
+      if (alreadyLoadedWithCorrectLocale) {
+        if (window.google?.accounts?.id) {
+          initializeGoogle();
         } else {
-          const script = document.createElement("script");
-          script.src = "https://accounts.google.com/gsi/client";
-          script.async = true;
-          script.onload = initializeGoogle;
-          document.body.appendChild(script);
+          existingScript.addEventListener("load", initializeGoogle);
         }
+      } else {
+        // إزالة السكريبت القديم (المحمَّل بلغة مختلفة) وإعادة تحميله باللغة الصحيحة
+        if (existingScript) existingScript.remove();
+
+        const script = document.createElement("script");
+        script.id = GSI_SCRIPT_ID;
+        script.src = `https://accounts.google.com/gsi/client?hl=${curLang}`;
+        script.dataset.hl = curLang;
+        script.async = true;
+        script.onload = initializeGoogle;
+        document.body.appendChild(script);
       }
     }
 
@@ -73,7 +83,7 @@ export function useGoogleSignInButton() {
     return () => {
       isCancelled = true;
     };
-  }, [isDark]);
+  }, [isDark, curLang]);
 
   return { buttonRef, isLoading };
 }
