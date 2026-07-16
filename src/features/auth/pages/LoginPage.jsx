@@ -95,7 +95,7 @@ function LoginPage() {
                 </ButtonForm>
 
                 {/* Sign in with google */}
-                <div className="mt-3 flex flex-col items-center gap-2">
+                <div className="mt-3 mb-6 flex flex-col items-center gap-2">
                   <div ref={googleButtonRef} />
                   {isLoginWithGoogle && <MiniSpinner />}
                 </div>
@@ -120,8 +120,8 @@ function LoginPage() {
             </form>
           </div>
         </div>
-        {/* image side */}
 
+        {/* image side */}
         <div
           className={`${
             isDark

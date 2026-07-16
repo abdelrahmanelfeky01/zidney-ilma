@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { generateNonce } from "../../../utils/helpers";
 import { useSigninWithGoogle } from "./useSigninWithGoogle";
+import { useTranslation } from "react-i18next";
 
 export function useGoogleSignInButton() {
   const isDark = useSelector((state) => state.general.isDark);
@@ -9,6 +10,8 @@ export function useGoogleSignInButton() {
   const buttonRef = useRef(null);
   const nonceRef = useRef(null);
   const signInRef = useRef(signInWithGoogleIdTokenFn);
+  const { i18n } = useTranslation();
+  const curLang = i18n.language;
 
   useEffect(() => {
     signInRef.current = signInWithGoogleIdTokenFn;
@@ -41,7 +44,8 @@ export function useGoogleSignInButton() {
           size: "large",
           shape: "rectangular",
           text: "continue_with",
-          width: 320,
+          width: 340,
+          locale: curLang === "ar" ? "ar" : "en",
         });
       }
 
