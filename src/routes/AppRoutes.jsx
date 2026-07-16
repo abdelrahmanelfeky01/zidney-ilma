@@ -62,14 +62,7 @@ function AppRoutes() {
           }
         />
 
-        <Route
-          path="reset-password"
-          element={
-            <GuestRoute>
-              <ResetPasswordPage />
-            </GuestRoute>
-          }
-        />
+        <Route path="reset-password" element={<ResetPasswordPage />} />
       </Routes>
     </>
   );

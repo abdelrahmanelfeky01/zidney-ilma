@@ -112,5 +112,8 @@ export async function verifyResetPasswordOtp({ email, token }) {
 export async function updatePassword(password) {
   const { data, error } = await supabase.auth.updateUser({ password });
   if (error) throw new Error(error.message);
+
+  await supabase.auth.signOut({ scope: "local" });
+
   return data;
 }
