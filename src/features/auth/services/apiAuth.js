@@ -90,6 +90,15 @@ export async function resetPassword(email) {
   return data;
 }
 
+export async function resendResetPassword(email) {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(
+    email.trim(),
+  );
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
 export async function verifyResetPasswordOtp({ email, token }) {
   const { data, error } = await supabase.auth.verifyOtp({
     email,

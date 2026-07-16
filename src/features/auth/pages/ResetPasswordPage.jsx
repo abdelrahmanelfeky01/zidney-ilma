@@ -8,13 +8,16 @@ import Input from "../components/Input";
 import InputFeedback from "../components/InputFeedback";
 import ButtonForm from "../components/ButtonForm";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ButtonLink from "../components/ButtonLink";
 import { useTranslation } from "react-i18next";
 import Logo from "../../../ui/Logo";
 import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useResetPassword } from "../hooks/useResetPassword";
+import useVerifyResetPasswordOtp from "../hooks/useVerifyResetPasswordOtp";
+import useUpdatePassword from "../hooks/useUpdatePassword";
 import MiniSpinner from "../../../ui/MiniSpinner";
 import Spinner from "../../../ui/Spinner";
 import {
@@ -22,12 +25,11 @@ import {
   hasLettersAndNumbers,
   isValidPassword,
 } from "../../../utils/helpers";
-import useVerifyResetPasswordOtp from "../../auth/hooks/useVerifyResetPasswordOtp";
-import useUpdatePassword from "../../auth/hooks/useUpdatePassword";
+import { resendResetPassword } from "../services/apiAuth";
 
 function ResetPasswordPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
 
@@ -35,21 +37,18 @@ function ResetPasswordPage() {
   const { i18n } = useTranslation();
   const curLang = i18n.language;
 
-  // Reset Password
+  // ---- Step 1: send OTP to email ----
+  const { resetPassword, isLoading: isSendingEmail } = useResetPassword();
 
-  const { resetPassword, isLoading, isError } = useResetPassword();
-
+  // ---- Step 2: verify OTP ----
   const {
-    isError: isErrorSendingOTP,
-    isLoading: isSendingOTP,
     verifyResetPasswordOtp,
+    isLoading: isVerifyingOtp,
+    isError: isOtpError,
   } = useVerifyResetPasswordOtp();
 
-  const {
-    isLoading: isSendingNewPassword,
-    updatePassword,
-    isError: isErrorSendingNewPassword,
-  } = useUpdatePassword();
+  // ---- Step 3: set new password ----
+  const { updatePassword, isLoading: isUpdatingPassword } = useUpdatePassword();
 
   const {
     register,
@@ -59,10 +58,51 @@ function ResetPasswordPage() {
   } = useForm();
 
   const inputsValue = useWatch({ control });
-  const password = inputsValue.password;
+
+  const isProcessing = isSendingEmail || isVerifyingOtp || isUpdatingPassword;
+
+  // هاندلرات الخطوتين اللي مفيهمش react-hook-form. مش بتاخد event
+  // من submit خالص — بتشتغل من زرار click عادي أو من Enter (عن طريق keydown).
+  function handleSendResetEmail() {
+    if (!email) return;
+
+    resetPassword(email, {
+      onSuccess: () => setStep(2),
+    });
+  }
+
+  function handleVerifyOtp() {
+    if (!otp) return;
+
+    verifyResetPasswordOtp(
+      { email, token: otp },
+      {
+        onSuccess: () => setStep(3),
+      },
+    );
+  }
+
+  // يستدعى من onKeyDown على مستوى الـ form. بيمنع أي submit افتراضي
+  // للمتصفح قبل ما يتولد أصلاً، وينفذ نفس اللي onClick بينفذه بالظبط.
+  function handleEnterKey(handler) {
+    return (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        e.stopPropagation();
+        handler();
+      }
+    };
+  }
 
   function onSubmitNewPassword(data) {
-    console.log(data);
+    if (data.password !== data.repeatPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
+
+    updatePassword(data.password, {
+      onSuccess: () => navigate("/login"),
+    });
   }
 
   return (
@@ -70,7 +110,7 @@ function ResetPasswordPage() {
       dir={curLang === "en" ? "ltr" : "rtl"}
       className={`${isDark ? "bg-night" : "bg-light"}`}
     >
-      {isLoading && <Spinner />}
+      {isProcessing && <Spinner />}
 
       <>
         <Logo
@@ -79,7 +119,7 @@ function ResetPasswordPage() {
         />
 
         {/* Step 1 -> send email to backend */}
-        {step === 1 && !isLoading && (
+        {step === 1 && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -95,7 +135,12 @@ function ResetPasswordPage() {
                 No worries, we'll send you reset instructions.
               </p>
             </div>
-            <form autoComplete="on" className="600:w-[80%] 300:w-full">
+            {/* من غير onSubmit خالص. Enter بيتمسك في onKeyDown ويعمل نفس اللي الزرار بيعمله */}
+            <form
+              autoComplete="on"
+              onKeyDown={handleEnterKey(handleSendResetEmail)}
+              className="600:w-[80%] 300:w-full"
+            >
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -111,14 +156,13 @@ function ResetPasswordPage() {
               <ButtonForm
                 onClick={(e) => {
                   e.preventDefault();
-                  resetPassword(email);
-                  if (!isError && !isLoading) setStep(2);
+                  handleSendResetEmail();
                 }}
-                disabled={isLoading}
-                type="submit"
+                disabled={isSendingEmail}
+                type="button"
                 className="bg-primary-green-heavy text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
               >
-                Reset password
+                {isSendingEmail ? <MiniSpinner /> : "Reset password"}
               </ButtonForm>
             </form>
 
@@ -136,8 +180,8 @@ function ResetPasswordPage() {
           </div>
         )}
 
-        {/* Step 1 -> send otp to backend */}
-        {step === 2 && !isSendingOTP && (
+        {/* Step 2 -> verify otp */}
+        {step === 2 && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -150,12 +194,17 @@ function ResetPasswordPage() {
                 Password reset
               </h2>
               <p className="text-description 380:text-xl 300:text-lg">
-                We've sent an OTP to your email address. Please enter the OTP to
-                reset your password.
+                If you have a registered account, a code will be sent to you;
+                enter it here.
               </p>
             </div>
 
-            <form autoComplete="on" className="600:w-[80%] 300:w-full">
+            {/* من غير onSubmit خالص هنا كمان */}
+            <form
+              autoComplete="on"
+              onKeyDown={handleEnterKey(handleVerifyOtp)}
+              className="600:w-[80%] 300:w-full"
+            >
               <Input
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
@@ -163,23 +212,41 @@ function ResetPasswordPage() {
                 maxLength="6"
                 label="Enter OTP"
                 classNameInput="text-2xl font-semibold text-title tracking-[10px] focus:ring-2 focus:ring-offset-3 -me-[10px] text-center border-dashed border-3"
-                classNameContainer="mb-6"
+                classNameContainer="mb-2"
                 dir={curLang === "en" ? "ltr" : "rtl"}
               />
+
+              {isOtpError && (
+                <div className="mb-4">
+                  <InputFeedback
+                    type="error"
+                    message="The OTP you entered is incorrect. Please try again."
+                  />
+                </div>
+              )}
 
               <ButtonForm
                 onClick={(e) => {
                   e.preventDefault();
-                  verifyResetPasswordOtp({ email: email, token: otp });
-                  if (!isErrorSendingOTP && !isSendingOTP) setStep(3);
+                  handleVerifyOtp();
                 }}
-                disabled={isSendingOTP}
+                disabled={isVerifyingOtp}
                 type="button"
                 className="bg-primary-green-heavy mb-6 text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
               >
-                Continue
+                {isVerifyingOtp ? <MiniSpinner /> : "Continue"}
               </ButtonForm>
             </form>
+
+            <p className="text-description mb-8 text-center">
+              Didn't receive the email?{" "}
+              <span
+                onClick={() => resendResetPassword(email)}
+                className="text-primary-green-heavy cursor-pointer font-semibold hover:underline"
+              >
+                Click to resend
+              </span>
+            </p>
 
             <ButtonLink
               to="/login"
@@ -195,7 +262,9 @@ function ResetPasswordPage() {
           </div>
         )}
 
-        {step === 3 && !isSendingNewPassword && (
+        {/* Step 3 -> set new password */}
+
+        {step === 3 && (
           <div
             dir={curLang === "en" ? "ltr" : "rtl"}
             className={`600:w-150 300:px-8 mx-auto flex h-dvh animate-[fadeIn_0.5s_ease] flex-col items-center justify-center`}
@@ -267,7 +336,9 @@ function ResetPasswordPage() {
                 <Input
                   {...register("repeatPassword", {
                     required: "Please confirm your password",
-                    validate: (value) => value === inputsValue.password,
+                    validate: (value) =>
+                      value === inputsValue.password ||
+                      "Passwords do not match.",
                   })}
                   isError={Boolean(errors?.repeatPassword?.message)}
                   label="Confirm password"
@@ -300,17 +371,11 @@ function ResetPasswordPage() {
               </div>
 
               <ButtonForm
-                onClick={(e) => {
-                  e.preventDefault();
-                  updatePassword(password);
-                  if (!isErrorSendingNewPassword && !isSendingNewPassword)
-                    navigate("/login");
-                }}
-                disabled={isSendingNewPassword}
+                disabled={isUpdatingPassword}
                 type="submit"
                 className="bg-primary-green-heavy text-[1.1rem] text-green-50 hover:bg-[#2d7230]"
               >
-                Reset password
+                {isUpdatingPassword ? <MiniSpinner /> : "Reset password"}
               </ButtonForm>
             </form>
 

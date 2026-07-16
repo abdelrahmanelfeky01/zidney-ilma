@@ -12,7 +12,7 @@ export function useResetPassword() {
     mutationFn: resetPasswordApi,
     mutationKey: ["resetPassword"],
     onSuccess: () => {
-      toast.success("reset Password Email Sent");
+      toast.success("اذا كان هناك حساب مسجل فسيتم ارسال ال otp");
     },
     onError: (err) => {
       toast.error(err.message);
