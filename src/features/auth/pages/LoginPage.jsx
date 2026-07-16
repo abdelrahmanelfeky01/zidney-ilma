@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useLogin } from "../../auth/hooks/useLogin";
 import Logo from "../../../ui/Logo";
+import { useSigninWithGoogle } from "../hooks/useSigninWithGoogle";
 
 function LoginPage() {
   const isDark = useSelector((state) => state.general.isDark);
@@ -17,6 +18,9 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
+
+  const { signInWithGoogle, isLoading: isLoginWithGoogle } =
+    useSigninWithGoogle();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -92,7 +96,11 @@ function LoginPage() {
 
                 {/* Sign in with google */}
                 <ButtonForm
-                  disabled={isLoading}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signInWithGoogle();
+                  }}
+                  disabled={isLoginWithGoogle}
                   className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex items-center justify-center gap-3 border`}
                 >
                   <FcGoogle className="text-2xl" />

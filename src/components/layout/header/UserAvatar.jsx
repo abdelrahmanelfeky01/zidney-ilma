@@ -13,8 +13,7 @@ function UserAvatar() {
   const email = "hi@abdelrahmanelfeky.com";
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useSelector((state) => state.general);
-  const { t, i18n } = useTranslation();
-  const curLang = i18n.language;
+  const { t } = useTranslation();
   const { logout, isLoading: isLoginOut } = useLogout();
 
   function handleClickAvatar(e) {
@@ -23,14 +22,14 @@ function UserAvatar() {
   }
 
   return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full">
+    <div className="relative flex h-10 w-10 items-center justify-center rounded-full">
       {/* Button */}
       <button
         className="relative z-1100 flex cursor-pointer items-center justify-center rounded-full"
         onClick={handleClickAvatar}
       >
-        <img src={abdelrahmanElfeky} alt="User" className="rounded-full" />
-        {/* <LuCircleUserRound /> */}
+        {/* <img src={abdelrahmanElfeky} alt="User" className="rounded-full" /> */}
+        <LuCircleUserRound className="text-3xl" />
       </button>
 
       {/* Menu */}
@@ -47,7 +46,7 @@ function UserAvatar() {
 
           {/* Menu */}
           <div
-            className={`${isDark ? "shadow-[0_4px_12px_rgba(255,255,255,0.03)]" : "shadow-lg"} ${isDark ? "bg-night" : "bg-light"} ${curLang === "en" ? "-translate-x-50 translate-y-4" : "translate-x-50 translate-y-4"} animate-menu-in relative z-1000 w-60 rounded-lg`}
+            className={`${isDark ? "shadow-[0_4px_12px_rgba(255,255,255,0.03)]" : "shadow-lg"} ${isDark ? "bg-night" : "bg-light"} animate-menu-in absolute inset-e-0 top-full z-1000 mt-2 w-60 rounded-lg`}
           >
             {/* Top */}
             <div
@@ -59,7 +58,7 @@ function UserAvatar() {
                 alt="User"
                 className="h-10 w-10 rounded-full"
               /> */}
-              <LuCircleUserRound />
+              <LuCircleUserRound className="text-3xl" />
               <div>
                 <h3 className="text-title font-semibold">Abdelrahman Elfeky</h3>
                 <p className="text-description text-sm">
