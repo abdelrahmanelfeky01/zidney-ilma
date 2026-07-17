@@ -6,7 +6,7 @@ export const navLinks = [
     requiresAuth: true,
   },
   {
-    link: "/paid-courses",
+    link: "/live-sessions",
     labelEn: "Live Sessions",
     labelAr: "المحاضرات المباشرة",
     requiresAuth: true,

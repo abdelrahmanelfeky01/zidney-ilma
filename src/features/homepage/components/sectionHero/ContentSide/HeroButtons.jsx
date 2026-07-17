@@ -1,9 +1,16 @@
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../../auth/hooks/useUser";
+import ModalLogin from "../../../../../routes/ModalLogin";
+import { toggleShowLoginModal } from "../../../../../store/generalSlice";
 
 function HeroButtons() {
   const { t } = useTranslation();
   const isDark = useSelector((state) => state.general.isDark);
+  const navigate = useNavigate();
+  const { isAuthenticated, isLoading } = useUser();
+  const dispatch = useDispatch();
 
   const className = {
     classNamePrimaryButton:
@@ -24,12 +31,24 @@ function HeroButtons() {
   return (
     <div className="mb-12 flex flex-wrap items-center gap-3">
       <button
+        onClick={() => {
+          !isAuthenticated && !isLoading
+            ? dispatch(toggleShowLoginModal())
+            : navigate("/courses");
+        }}
         className={className.classNamePrimaryButton}
         style={className.stylesPrimaryButton}
       >
         {t("homePage.hero.contentSide.primaryButton")}
       </button>
-      <button className={className.classNameSecondaryButton}>
+      <button
+        onClick={() => {
+          !isAuthenticated && !isLoading
+            ? dispatch(toggleShowLoginModal())
+            : navigate("/live-sessions");
+        }}
+        className={className.classNameSecondaryButton}
+      >
         {t("homePage.hero.contentSide.secondaryButton")}
       </button>
     </div>

@@ -33,11 +33,15 @@ function UserAvatar() {
         className="relative z-1100 flex cursor-pointer items-center justify-center rounded-full"
         onClick={handleClickAvatar}
       >
-        <img
-          src={isLoading ? <MiniSpinner /> : avatar ? avatar : userImage}
-          alt="User"
-          className="h-full w-full rounded-full"
-        />
+        {isLoading ? (
+          <MiniSpinner />
+        ) : (
+          <img
+            src={avatar ? avatar : userImage}
+            alt="User"
+            className="h-full w-full rounded-full"
+          />
+        )}
       </button>
 
       {/* Menu */}
@@ -61,20 +65,24 @@ function UserAvatar() {
               dir="ltr"
               className="flex cursor-pointer items-center justify-center gap-3 p-4 pt-6 pb-3"
             >
-              <img
-                src={isLoading ? <MiniSpinner /> : avatar ? avatar : userImage}
-                alt="User"
-                className="h-10 w-10 rounded-full"
-              />
+              {isLoading ? (
+                <MiniSpinner />
+              ) : (
+                <img
+                  src={avatar ? avatar : userImage}
+                  alt="User"
+                  className="h-10 w-10 rounded-full"
+                />
+              )}
 
               <div>
                 <h3 className="text-title font-semibold">
-                  {name.slice(0, 15)}
-                  {email.length > 15 && "..."}
+                  {name?.slice(0, 15)}
+                  {name?.length > 15 && "..."}
                 </h3>
                 <p className="text-description text-sm">
-                  {email.slice(0, 15)}
-                  {email.length > 15 && "...."}
+                  {email?.slice(0, 15)}
+                  {email?.length > 15 && "...."}
                 </p>
               </div>
             </div>
@@ -85,19 +93,6 @@ function UserAvatar() {
 
             {/* Buttons */}
             <ul className="text-title divide-title/5 divide-y py-5">
-              {/* User Settings */}
-              {/* <li
-                className={` ${
-                  isDark
-                    ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
-                    : "hover:text-primary-green text-[#4a4a4a] hover:bg-[#E8F5E9]"
-                } hover:bg-primary-green/10 cursor-pointer px-4 py-3 transition-all duration-300`}
-              >
-                <button className="flex cursor-pointer items-center justify-center gap-2">
-                  <IoSettingsOutline />
-                  {t("userMenu.profileSettings")}
-                </button>
-              </li> */}
               {/* Logout */}
               <li
                 onClick={() => {

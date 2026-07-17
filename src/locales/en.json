@@ -1,8 +1,8 @@
 {
   "homePage": {
     "CTA": {
-      "buttonPrimary": "Start Free Now →",
-      "buttonSecondary": "Book a Trial Session",
+      "buttonPrimary": "Browse Course Now →",
+      "buttonSecondary": "Book a live session",
       "title": "Begin Your Quran Journey Today",
       "description": "Whether you're a beginner or seeking mastery — we have the right path for you. Free courses available immediately and live sessions are waiting."
     },
@@ -26,7 +26,7 @@
     "hero": {
       "contentSide": {
         "besmAllah": "In the Name of Allah, the Most Gracious",
-        "primaryButton": "Start Your Journey Free →",
+        "primaryButton": "Browse Courses →",
         "secondaryButton": "Live Sessions",
         "titleSlice1": "Zidney ilma",
         "titleSlice2": "for Learning ",

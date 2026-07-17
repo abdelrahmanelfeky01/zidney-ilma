@@ -1,7 +1,14 @@
 import { useTranslation } from "react-i18next";
+import { useUser } from "../../../auth/hooks/useUser";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toggleShowLoginModal } from "../../../../store/generalSlice";
 
 function CTAActions() {
   const { t } = useTranslation();
+  const { isAuthenticated, isLoading } = useUser();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const className = {
     container: "flex flex-wrap justify-center gap-3.5",
@@ -21,12 +28,24 @@ function CTAActions() {
   return (
     <div className={className.container}>
       <button
+        onClick={() => {
+          !isAuthenticated && !isLoading
+            ? dispatch(toggleShowLoginModal())
+            : navigate("/courses");
+        }}
         className={className.classNameButtonPrimary}
         style={className.stylesButtonPrimary}
       >
         {t("homePage.CTA.buttonPrimary")}
       </button>
-      <button className={className.buttonSecondary}>
+      <button
+        onClick={() => {
+          !isAuthenticated && !isLoading
+            ? dispatch(toggleShowLoginModal())
+            : navigate("/live-sessions");
+        }}
+        className={className.buttonSecondary}
+      >
         {t("homePage.CTA.buttonSecondary")}
       </button>
     </div>

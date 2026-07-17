@@ -3,13 +3,14 @@ import ButtonLogin from "../components/layout/header/buttons/ButtonLogin";
 import ButtonSignUp from "../components/layout/header/buttons/ButtonSignUp";
 import { toggleShowLoginModal } from "../store/generalSlice";
 import { useTranslation } from "react-i18next";
-
 function ModalLogin() {
-  const { showLoginModal } = useSelector((state) => state.general);
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.general);
-
+  
   const { t } = useTranslation();
+
+  
+  const { showLoginModal } = useSelector((state) => state.general);
 
   function handleCloseModal() {
     dispatch(toggleShowLoginModal());
