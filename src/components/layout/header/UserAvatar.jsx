@@ -1,5 +1,6 @@
 import { useState } from "react";
-import abdelrahmanElfeky from "../../../assets/images/people/abdelrahman_elfeky.jpg";
+
+import userImage from "../../../assets/icons/user.png";
 
 import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
@@ -29,8 +30,11 @@ function UserAvatar() {
         className="relative z-1100 flex cursor-pointer items-center justify-center rounded-full"
         onClick={handleClickAvatar}
       >
-        {/* <img src={abdelrahmanElfeky} alt="User" className="rounded-full" /> */}
-        <LuCircleUserRound className="text-3xl" />
+        <img
+          src={userImage}
+          alt="User"
+          className="h-full w-full rounded-full"
+        />
       </button>
 
       {/* Menu */}
@@ -54,12 +58,12 @@ function UserAvatar() {
               dir="ltr"
               className="flex cursor-pointer items-center justify-center gap-3 p-4 pt-6 pb-3"
             >
-              {/* <img
-                src={abdelrahmanElfeky}
+              <img
+                src={userImage}
                 alt="User"
                 className="h-10 w-10 rounded-full"
-              /> */}
-              <LuCircleUserRound className="text-3xl" />
+              />
+              {/* <LuCircleUserRound className="text-3xl" /> */}
               <div>
                 <h3 className="text-title font-semibold">
                   {name.slice(0, 15)}
