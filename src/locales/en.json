@@ -9,7 +9,7 @@
     "footer": {
       "description": "Zidney Ilma Academy — a beacon of knowledge for teaching the Holy Quran and Tajweed to Muslims around the world.",
       "ayah": "﴾ And say: My Lord, increase me in knowledge ﴿ — Ta-Ha: 114",
-      "copyrightText": "© 2025 Zidney Ilma Academy — All rights reserved."
+      "copyrightText": "© Zidney Ilma Academy — All rights reserved."
     },
     "freeCourses": {
       "type": "Free",
@@ -114,6 +114,11 @@
     "emailPlaceholder": "Enter your email address",
     "resetButton": "Reset password",
     "backToLogin": "Back to login"
+  },
+  "notFoundPage": {
+    "title": "This page isn't here",
+    "description": "The link may have moved, been removed, or been mistyped. No worries — you can always head back and start again.",
+    "homeButton": "Back to Home"
   },
   "toaster": {
     "loginSuccess": "Logged in successfully",

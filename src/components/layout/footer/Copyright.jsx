@@ -14,9 +14,9 @@ function Copyright() {
   const isDark = useSelector((state) => state.general.isDark);
   const { t, i18n } = useTranslation();
   const curLang = i18n.language;
+  const currentYear = new Date().getFullYear();
 
   const className = {
-    
     container: `mx-auto flex max-w-290 flex-wrap items-center justify-between gap-2 text-[12.5px] ${isDark ? "text-[#5a7560]" : "text-[#888]"}`,
 
     socialLink: `flex h-12 w-12 cursor-pointer items-center justify-center rounded-[10px] border text-[15px] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-yellow-light ${
@@ -26,7 +26,9 @@ function Copyright() {
 
   return (
     <div className={className.container}>
-      <span>{t("homePage.footer.copyrightText")}</span>
+      <span>
+        {t("homePage.footer.copyrightText")} {currentYear}
+      </span>
       <div className="flex gap-2.5">
         {socials.map((s) => (
           <a

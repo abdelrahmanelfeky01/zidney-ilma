@@ -2,8 +2,6 @@
 
 تعديل النصوص والتأكد من ال responsive
 اصلاح صفحة تسجيل الدخول عبر جوجل
-اضافة ميزة تسجيل الدخول عبر جوجل مباشرة بمجرد الدخول للموقع وانا لست مسجلا للدخول
-الحصول على بيانات المستخدم .. الاسم والصورة
 
 ## 🟢 Done
 
@@ -19,6 +17,7 @@
 [✅] 8- Modal Login - Purchased
 [✅] 9- User Menu (static) - Purchased
 [✅] 10- Signup form validation - Purchased
+[⏳] 11- 404 Page -- Not Purchased
 
 <!-- Logic -->
 
@@ -46,12 +45,14 @@
 5- Create Accounts and signin with Google -- ✅
 6- Reset Password Logic -- ✅
 7- Load user information -- ✅
-9- Setting up Cron-job.org -- ⏳
-10- 404 Page
-11- Dashboard
-12- In Courses Page -> Library for show videos
-13- In Courses Page -> Library for show pdf
-14- In Courses Page -> Library for show mp3
-15- In Courses Page -> Form (MCQ)
-16- Profile Settings (static)
-17- Profile Settings (logic)
+9- Setting up Cron-job.org -- ✅
+10- 404 Page -- ⏳
+11- Add real courses to supabase database (free and paid courses)
+12- Design and implement course page
+13- In Courses Page -> Library for show videos
+14- In Courses Page -> Library for show pdf
+15- In Courses Page -> Library for show mp3
+16- In Courses Page -> Form (MCQ)
+17- Profile Settings (static)
+18- Profile Settings (logic)
+19- Dashboard

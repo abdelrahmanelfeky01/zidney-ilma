@@ -40,8 +40,6 @@ function AppRoutes() {
               </ProtectedRoute>
             }
           />
-
-          <Route path="*" element={<PageNotFound />} />
         </Route>
 
         <Route
@@ -63,6 +61,8 @@ function AppRoutes() {
         />
 
         <Route path="reset-password" element={<ResetPasswordPage />} />
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
