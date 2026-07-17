@@ -85,6 +85,17 @@ export async function getCurrentUser() {
   return fullData.user;
 }
 
+export async function getUserProfile(userId) {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("id, full_name, avatar_url, email")
+    .eq("id", userId)
+    .single();
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
 export async function logout() {
   const { error } = await supabase.auth.signOut({ scope: "local" });
   if (error) throw new Error(error.message);

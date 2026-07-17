@@ -9,14 +9,17 @@ import { useTranslation } from "react-i18next";
 import { useLogout } from "../../../features/auth/hooks/useLogout";
 import MiniSpinner from "../../../ui/MiniSpinner";
 import { LuCircleUserRound } from "react-icons/lu";
+import { useUserProfile } from "../../../features/auth/hooks/useUserProfile";
 
 function UserAvatar() {
-  const email = "hi@abdelrahmanelfeky.com";
-  const name = "Abdelrahman Elfeky";
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useSelector((state) => state.general);
   const { t } = useTranslation();
   const { logout, isLoading: isLoginOut } = useLogout();
+
+  const { profile, isLoading } = useUserProfile();
+
+  const { full_name: name, email, avatar_url: avatar } = profile ?? {};
 
   function handleClickAvatar(e) {
     e.preventDefault();
@@ -31,7 +34,7 @@ function UserAvatar() {
         onClick={handleClickAvatar}
       >
         <img
-          src={userImage}
+          src={isLoading ? <MiniSpinner /> : avatar ? avatar : userImage}
           alt="User"
           className="h-full w-full rounded-full"
         />
@@ -59,11 +62,11 @@ function UserAvatar() {
               className="flex cursor-pointer items-center justify-center gap-3 p-4 pt-6 pb-3"
             >
               <img
-                src={userImage}
+                src={isLoading ? <MiniSpinner /> : avatar ? avatar : userImage}
                 alt="User"
                 className="h-10 w-10 rounded-full"
               />
-              {/* <LuCircleUserRound className="text-3xl" /> */}
+
               <div>
                 <h3 className="text-title font-semibold">
                   {name.slice(0, 15)}
