@@ -49,7 +49,7 @@ export function useGoogleSignInButton() {
           size: "large",
           shape: "rectangular",
           text: "continue_with",
-          width: 320,
+          width: 340,
           locale: curLang,
         });
       }

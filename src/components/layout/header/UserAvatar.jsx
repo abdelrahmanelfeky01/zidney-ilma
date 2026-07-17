@@ -85,7 +85,8 @@ function UserAvatar() {
 
             {/* Buttons */}
             <ul className="text-title divide-title/5 divide-y py-5">
-              <li
+              {/* User Settings */}
+              {/* <li
                 className={` ${
                   isDark
                     ? "text-[#a0b8a5] hover:bg-[#1a2e20] hover:text-[#FFE082]"
@@ -96,7 +97,8 @@ function UserAvatar() {
                   <IoSettingsOutline />
                   {t("userMenu.profileSettings")}
                 </button>
-              </li>
+              </li> */}
+              {/* Logout */}
               <li
                 onClick={() => {
                   logout();
