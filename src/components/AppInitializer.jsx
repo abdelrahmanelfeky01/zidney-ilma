@@ -11,7 +11,12 @@ function AppInitializer() {
 
   // For init AOS
   useEffect(() => {
-    AOS.init({ duration: 700, once: true, offset: 200 });
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 200,
+      disable: () => window.innerWidth < 770,
+    });
   }, []);
 
   // For AOS on refresh
@@ -47,7 +52,7 @@ function AppInitializer() {
     }
 
     handleToggleLanguage();
-  }, []);
+  }, [i18n]);
 
   return null;
 }

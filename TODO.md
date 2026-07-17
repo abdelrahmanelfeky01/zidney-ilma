@@ -49,7 +49,7 @@
 7- Load user information -- ✅
 9- Setting up Cron-job.org -- ✅
 10- 404 Page -- ✅
-11- Add real courses to supabase database (free and paid courses) -- ⏳
+11- Add real courses to supabase database (free and paid courses) -- ⏳ انشاء دالتين واحدة enroll free course والثانية enroll paid course
 12- Design and implement course page
 13- In Courses Page -> Library for show videos
 14- In Courses Page -> Library for show pdf
