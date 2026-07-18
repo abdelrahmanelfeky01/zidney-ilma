@@ -102,7 +102,7 @@ function LoginPage() {
                       disabled={isLoginWithGoogle}
                       className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex cursor-pointer items-center justify-center gap-3 border`}
                     >
-                      <FcGoogle className="text-2xl" />
+                      <FcGoogle className="text-xl" />
                       {t("loginPage.googleButton")}
                     </ButtonForm>
 

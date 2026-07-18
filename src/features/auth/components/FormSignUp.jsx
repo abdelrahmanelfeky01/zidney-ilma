@@ -214,14 +214,14 @@ function FormSignUp({
           {t("registerPage.signUpButton")}
         </ButtonForm>
 
-        {/* Sign                {/* Sign in with google */}
+        {/* Sign in with google */}
         <div className="mt-3 mb-6 flex flex-col items-center gap-2">
           <div className="300:w-70 380:w-85 relative overflow-hidden">
             <ButtonForm
               disabled={isLoginWithGoogle}
               className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex cursor-pointer items-center justify-center gap-3 border`}
             >
-              <FcGoogle className="text-2xl" />
+              <FcGoogle className="text-xl" />
               {t("loginPage.googleButton")}
             </ButtonForm>
 
