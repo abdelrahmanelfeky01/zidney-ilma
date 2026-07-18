@@ -214,9 +214,9 @@ function FormSignUp({
           {t("registerPage.signUpButton")}
         </ButtonForm>
 
-        {/* Sign in with google */}
+        {/* Sign                {/* Sign in with google */}
         <div className="mt-3 mb-6 flex flex-col items-center gap-2">
-          <div className="relative w-85">
+          <div className="300:w-70 380:w-85 relative overflow-hidden">
             <ButtonForm
               disabled={isLoginWithGoogle}
               className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex cursor-pointer items-center justify-center gap-3 border`}
@@ -227,7 +227,7 @@ function FormSignUp({
 
             <div
               ref={googleButtonRef}
-              className="absolute inset-0 overflow-hidden opacity-0"
+              className="380:translate-y-1 380:scale-108 max-380:scale-95 max-380:translate-y-0.5 max-380:-translate-x-7 absolute inset-0 opacity-0"
             />
           </div>
 

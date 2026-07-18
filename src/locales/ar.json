@@ -90,10 +90,9 @@
     "passwordLabel": "كلمة المرور",
     "forgotPassword": "نسيت كلمة المرور؟",
     "signInButton": "تسجيل الدخول",
-    "googleButton": "تسجيل الدخول باستخدام جوجل",
+    "googleButton": "تسجيل الدخول عبر Google",
     "dontHaveAccount": "ليس لديك حساب؟",
-    "signUpLink": "إنشاء حساب",
-    "continueWithGoogle": "Google تسجيل الدخول عبر"
+    "signUpLink": "إنشاء حساب"
   },
   "registerPage": {
     "title": "إنشاء حساب في زدني علماً",
