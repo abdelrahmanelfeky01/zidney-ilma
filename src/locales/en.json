@@ -92,7 +92,8 @@
     "signInButton": "Sign in",
     "googleButton": "Sign in with Google",
     "dontHaveAccount": "Dont have an acoount?",
-    "signUpLink": "Sign up"
+    "signUpLink": "Sign up",
+    "continueWithGoogle": "Login With Google"
   },
   "registerPage": {
     "title": "Sign up to Zidney ilma",

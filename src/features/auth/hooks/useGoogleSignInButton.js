@@ -51,6 +51,7 @@ export function useGoogleSignInButton() {
           text: "continue_with",
           width: 340,
           locale: curLang,
+          type: "standard",
         });
       }
 

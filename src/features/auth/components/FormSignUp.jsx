@@ -20,6 +20,7 @@ import {
 } from "../../../utils/helpers";
 
 import { useGoogleSignInButton } from "../hooks/useGoogleSignInButton";
+import { FcGoogle } from "react-icons/fc";
 
 function FormSignUp({
   onSubmit,
@@ -214,8 +215,22 @@ function FormSignUp({
         </ButtonForm>
 
         {/* Sign in with google */}
-        <div className="mb-4 flex flex-col items-center gap-2">
-          <div ref={googleButtonRef} dir={curLang === "en" ? "ltr" : "rtl"} />
+        <div className="mt-3 mb-6 flex flex-col items-center gap-2">
+          <div className="relative w-85">
+            <ButtonForm
+              disabled={isLoginWithGoogle}
+              className={`${isDark ? "hover:bg-white/5" : "hover:bg-gray-100"} text-description border-primary-green-heavy/40 flex cursor-pointer items-center justify-center gap-3 border`}
+            >
+              <FcGoogle className="text-2xl" />
+              {t("loginPage.googleButton")}
+            </ButtonForm>
+
+            <div
+              ref={googleButtonRef}
+              className="absolute inset-0 overflow-hidden opacity-0"
+            />
+          </div>
+
           {isLoginWithGoogle && <MiniSpinner />}
         </div>
 

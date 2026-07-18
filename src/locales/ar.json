@@ -92,7 +92,8 @@
     "signInButton": "تسجيل الدخول",
     "googleButton": "تسجيل الدخول باستخدام جوجل",
     "dontHaveAccount": "ليس لديك حساب؟",
-    "signUpLink": "إنشاء حساب"
+    "signUpLink": "إنشاء حساب",
+    "continueWithGoogle": "Google تسجيل الدخول عبر"
   },
   "registerPage": {
     "title": "إنشاء حساب في زدني علماً",
