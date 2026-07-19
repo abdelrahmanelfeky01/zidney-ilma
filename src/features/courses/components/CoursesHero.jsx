@@ -2,12 +2,25 @@ import { useTranslation } from "react-i18next";
 import BackButton from "./BackButton";
 import { useSelector } from "react-redux";
 
-function CoursesHero() {
+function CoursesHero({ courses }) {
   const { t } = useTranslation();
   const isDark = useSelector((state) => state.general.isDark);
+
+  // قيم مُشتقة من courses مباشرة، بلا state وبلا useEffect
+  const coursesCount = courses?.length ?? 0;
+
+  const lessonsCount =
+    courses?.reduce(
+      (total, course) => total + (course.lessons?.length ?? 0),
+      0,
+    ) ?? 0;
+
+  const teachersCount = courses
+    ? new Set(courses.map((course) => course.teacher_name_en)).size
+    : 0;
+
   const className = {
-    classNameSection:
-      "relative overflow-hidden px-8 py-16 text-center",
+    classNameSection: "relative overflow-hidden px-8 py-16 text-center",
 
     styleSection: {
       background: isDark
@@ -56,7 +69,7 @@ function CoursesHero() {
         <div className="mt-9 flex flex-wrap items-center justify-center gap-10">
           <div className="text-center">
             <span className="block text-[26px] leading-none font-black text-white">
-              {t("coursesPage.availableCoursesNumber")}
+              {coursesCount}
             </span>
             <span className="mt-1 block text-xs text-white/70">
               {t("coursesPage.availableCourses")}
@@ -67,7 +80,7 @@ function CoursesHero() {
 
           <div className="text-center">
             <span className="block text-[26px] leading-none font-black text-white">
-              {t("coursesPage.coursesLecturesCount")}
+              {lessonsCount}
             </span>
             <span className="mt-1 block text-xs text-white/70">
               {t("coursesPage.coursesLectures")}
@@ -78,23 +91,23 @@ function CoursesHero() {
 
           <div className="text-center">
             <span className="block text-[26px] leading-none font-black text-white">
-              {t("coursesPage.specializedTeacherCount")}
+              {teachersCount}
             </span>
             <span className="mt-1 block text-xs text-white/70">
               {t("coursesPage.specializedTeacher")}
             </span>
           </div>
+{/* 
+          <div className="hidden h-9 w-px bg-white/20 sm:block" /> */}
 
-          <div className="hidden h-9 w-px bg-white/20 sm:block" />
-
-          <div className="text-center">
+          {/* <div className="text-center">
             <span className="block text-[26px] leading-none font-black text-white">
               {t("coursesPage.registeredStudentCount")}
             </span>
             <span className="mt-1 block text-xs text-white/70">
               {t("coursesPage.registeredStudent")}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
