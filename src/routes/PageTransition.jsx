@@ -1,38 +1,33 @@
-// src/ui/PageTransition.jsx
+// src/routes/PageTransition.jsx
 
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
-NProgress.configure({ showSpinner: false, speed: 500 });
+NProgress.configure({ showSpinner: false, speed: 400 });
 
 function PageTransition({ children }) {
   const { pathname } = useLocation();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     NProgress.start();
+    setVisible(false);
 
-    const hideTimer = setTimeout(() => setVisible(false), 0);
-
-    const showTimer = setTimeout(() => {
-      NProgress.done();
+    const frame = requestAnimationFrame(() => {
       setVisible(true);
-    }, 500);
+      NProgress.done();
+    });
 
-    return () => {
-      clearTimeout(hideTimer);
-      clearTimeout(showTimer);
-    };
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   return (
     <div
       style={{
         opacity: visible ? 1 : 0,
-        visibility: visible ? "visible" : "hidden",
-        transition: "opacity 0.3s ease",
+        transition: "opacity 0.25s ease",
       }}
     >
       {children}
