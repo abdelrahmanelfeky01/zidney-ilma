@@ -79,8 +79,31 @@
     "specializedTeacher": "Specialized Teacher",
     "registeredStudentCount": "12K+",
     "registeredStudent": "Registered student",
-    "placeholderSearchInput": "Search for a course, instructor, or topic…",
+    "placeholderSearchInput": "Search for a course or instructor",
     "searchButton": "Search"
+  },
+  "coursePage": {
+    "backToCourses": "Back to all courses",
+    "sidebar": {
+      "title": "Course content",
+      "unitsCount": "{{count}} units",
+      "downloadResources": "Download resources",
+      "progress": "{{done}} of {{total}} lectures completed"
+    },
+    "lectureIndicator": "Lecture {{current}} of {{total}}",
+    "tabs": {
+      "description": "Lecture description",
+      "notes": "My notes",
+      "resources": "Resources ({{count}})"
+    },
+    "noDescription": "No description is available for this lecture yet.",
+    "noNotes": "You haven't added any notes to this lecture yet.",
+    "noResources": "Resources for this lecture will appear here.",
+    "nextLecture": "Next lecture",
+    "prevLecture": "Previous lecture",
+    "markComplete": "Mark as complete",
+    "completed": "Lecture completed",
+    "undoComplete": "Undo completion"
   },
   "loginPage": {
     "title": "Welcome back",

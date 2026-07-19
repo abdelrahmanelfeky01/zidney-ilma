@@ -79,8 +79,31 @@
     "specializedTeacher": "معلم متخصص",
     "registeredStudentCount": "+12K",
     "registeredStudent": "طالب مسجل",
-    "placeholderSearchInput": "ابحث عن كورس، معلم، أو موضوع…",
+    "placeholderSearchInput": "ابحث عن كورس أو معلم",
     "searchButton": "بحث"
+  },
+  "coursePage": {
+    "backToCourses": "العودة إلى جميع الكورسات",
+    "sidebar": {
+      "title": "محتوى الدورة",
+      "unitsCount": "{{count}} وحدة تعليمية",
+      "downloadResources": "تحميل المصادر",
+      "progress": "{{done}} من {{total}} محاضرة مكتملة"
+    },
+    "lectureIndicator": "المحاضرة {{current}} من {{total}}",
+    "tabs": {
+      "description": "وصف المحاضرة",
+      "notes": "ملاحظاتي",
+      "resources": "الموارد ({{count}})"
+    },
+    "noDescription": "لا يوجد وصف متاح لهذه المحاضرة بعد.",
+    "noNotes": "لم تقم بإضافة أي ملاحظات على هذه المحاضرة بعد.",
+    "noResources": "الموارد الخاصة بهذه المحاضرة ستظهر هنا.",
+    "nextLecture": "المحاضرة التالية",
+    "prevLecture": "المحاضرة السابقة",
+    "markComplete": "إكمال المحاضرة",
+    "completed": "تم إكمال المحاضرة",
+    "undoComplete": "تراجع عن الإكمال"
   },
   "loginPage": {
     "title": "مرحبًا بعودتك",

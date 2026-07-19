@@ -10,3 +10,13 @@ export async function getCourses() {
 
   return courses;
 }
+
+export async function getCourseBySlug(slug) {
+  const { data, error } = await supabase
+    .from("courses")
+    .select("*, lessons(*)")
+    .eq("slug", slug)
+    .single();
+  if (error) throw new Error(error.message);
+  return data;
+}
