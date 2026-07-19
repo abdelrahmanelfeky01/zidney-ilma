@@ -4,6 +4,7 @@ import AppLayout from "../components/layout/AppLayout";
 // Pages
 import HomePage from "../features/homepage/pages/HomePage";
 import CoursesPage from "../features/courses/pages/CoursesPage";
+import CoursePage from "../features/courses/pages/CoursePage";
 import LoginPage from "../features/auth/pages/LoginPage";
 import RegisterPage from "../features/auth/pages/RegisterPage";
 import ResetPasswordPage from "../features/auth/pages/ResetPasswordPage";
@@ -41,6 +42,17 @@ function AppRoutes() {
             }
           />
         </Route>
+
+        <Route
+          path="course/:slug"
+          element={
+            <ProtectedRoute>
+              <PageTransition>
+                <CoursePage />
+              </PageTransition>
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/login"

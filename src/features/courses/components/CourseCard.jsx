@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const gradient =
   "linear-gradient(135deg, #0D4A2F 0%, #1E6B4A 50%, #2D8B63 100%)";
@@ -7,6 +8,7 @@ const gradient =
 function CourseCard({ course }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const navigate = useNavigate();
 
   const isDark = useSelector((state) => state.general.isDark);
 
@@ -19,6 +21,7 @@ function CourseCard({ course }) {
     created_at,
     description_ar,
     description_en,
+    slug,
     hours,
     id,
     is_free,
@@ -38,6 +41,7 @@ function CourseCard({ course }) {
 
   return (
     <article
+      onClick={() => navigate(`/course/${slug}`)}
       className={`flex cursor-pointer flex-col overflow-hidden rounded-[20px] border shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-250 hover:-translate-y-1.5 hover:border-[rgba(76,175,80,0.2)] hover:shadow-[0_16px_48px_rgba(30,107,74,0.15),0_4px_16px_rgba(0,0,0,0.08)] ${isDark ? "border-[#223028] bg-[#172019]" : "border-[#ede8e0] bg-white"}`}
     >
       {/* Thumbnail */}
