@@ -5,6 +5,7 @@ import AppLayout from "../components/layout/AppLayout";
 import HomePage from "../features/homepage/pages/HomePage";
 import CoursesPage from "../features/courses/pages/CoursesPage";
 import CoursePage from "../features/courses/pages/CoursePage";
+import CoursePageOld from "../features/courses/pages/CoursePage-old";
 import LoginPage from "../features/auth/pages/LoginPage";
 import RegisterPage from "../features/auth/pages/RegisterPage";
 import ResetPasswordPage from "../features/auth/pages/ResetPasswordPage";
