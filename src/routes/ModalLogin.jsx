@@ -3,6 +3,7 @@ import ButtonLogin from "../components/layout/header/buttons/ButtonLogin";
 import ButtonSignUp from "../components/layout/header/buttons/ButtonSignUp";
 import { toggleShowLoginModal } from "../store/generalSlice";
 import { useTranslation } from "react-i18next";
+
 function ModalLogin() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.general);
@@ -21,11 +22,11 @@ function ModalLogin() {
         {/* Overlay */}
         <div
           onClick={handleCloseModal}
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 starting:opacity-0"
         />
         {/* Modal */}
         <div
-          className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl shadow-[0_0_20px_5px_rgb(0,0,0,0.1)] ${isDark ? "bg-night" : "bg-light"} 600:p-10 300:w-[80%] 770:w-fit p-7`}
+          className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl shadow-[0_0_20px_5px_rgb(0,0,0,0.1)] ${isDark ? "bg-night" : "bg-light"} 600:p-10 300:w-[80%] 770:w-fit p-7 transition-opacity duration-300 starting:opacity-0`}
         >
           <h2 className="text-title 900:text-3xl mb-3 text-center text-2xl font-semibold">
             {t("modalLogin.title")}
