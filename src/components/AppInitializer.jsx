@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
@@ -8,6 +9,7 @@ function AppInitializer() {
   const { isDark } = useSelector((state) => state.general);
   const { i18n } = useTranslation();
   const curLang = i18n.language;
+  const location = useLocation();
 
   // For init AOS
   useEffect(() => {
@@ -18,6 +20,16 @@ function AppInitializer() {
       disable: () => window.innerWidth < 770,
     });
   }, []);
+
+  // إعادة مسح كامل للـ DOM بعد كل تغيير راوت
+  // (بدون هذا، أي عنصر عليه data-aos يُركَّب بعد أول تحميل يفضل مخفي للأبد)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      AOS.refreshHard();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   // For AOS on refresh
   useEffect(() => {
@@ -41,9 +53,7 @@ function AppInitializer() {
   // init language
   useEffect(() => {
     function handleToggleLanguage() {
-      // 1. Search on local storage if there is language saved
       const savedLanguage = localStorage.getItem("language");
-      // 2. if there is language? use it .. if no language .. use arabic
       if (savedLanguage) {
         i18n.changeLanguage(savedLanguage);
         document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
