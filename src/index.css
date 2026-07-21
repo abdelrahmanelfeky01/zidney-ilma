@@ -95,3 +95,16 @@ html {
 .animate-menu-in {
   animation: menu-in 0.2s ease-out;
 }
+
+/* --------------------------------- */
+/* ------ Helpers ------ */
+/* --------------------------------- */
+
+/* For fix aos problem */
+@media (max-width: 769px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
