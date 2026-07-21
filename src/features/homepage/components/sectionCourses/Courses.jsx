@@ -8,7 +8,7 @@ export default function FreeCourses() {
 
   return (
     <section
-      // data-aos="fade-up"
+      data-aos="fade-up"
       id="free-courses"
       className={`px-4 py-22 sm:px-6 lg:px-10 ${isDark ? "bg-[#111a14]" : "bg-[#f5f2ea]"}`}
     >
