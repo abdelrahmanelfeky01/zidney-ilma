@@ -36,7 +36,6 @@ function CoursesFilters({ courses, activeCategory, setActiveCategory }) {
 
   return (
     <div
-      data-aos="fade-up"
       className={"380:px-8 380:pt-8 mx-auto max-w-7xl px-6 pt-6"}
     >
       <div className={"no-scrollbar flex flex-wrap items-center gap-2.5 pb-2"}>
